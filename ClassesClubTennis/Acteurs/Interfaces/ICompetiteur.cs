@@ -4,6 +4,6 @@ using System.Text;
 
 namespace ClassesClubTennis.Acteurs {
     interface ICompetiteur {
-        int Classement { get; set; }
+        Classement Classement { get; }
     }
 }
