@@ -22,6 +22,22 @@ namespace ClassesClubTennis.Acteurs {
             }
         }
 
-        public int Classement { get; set; }
+        public Classement Classement { get; set; }
+
+        public Adresse Adresse {
+            get => default;
+            set {
+            }
+        }
+
+        public string NumeroTelephone {
+            get => default;
+            set {
+            }
+        }
+
+        public void ModifierNumeroTelephone(string nouveauNumero) {
+            throw new System.NotImplementedException();
+        }
     }
 }

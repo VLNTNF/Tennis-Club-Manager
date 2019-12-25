@@ -22,13 +22,13 @@ namespace ClassesClubTennis.Acteurs {
             }
         }
 
-        public Adresse Adresse {
+        public Sexe Sexe {
             get => default;
             set {
             }
         }
 
-        public Sexe Sexe {
+        public int Age {
             get => default;
             set {
             }
