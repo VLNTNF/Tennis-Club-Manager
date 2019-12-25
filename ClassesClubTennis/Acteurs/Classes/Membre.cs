@@ -21,5 +21,7 @@ namespace ClassesClubTennis.Acteurs {
             set {
             }
         }
+
+        public int Classement { get; set; }
     }
 }
