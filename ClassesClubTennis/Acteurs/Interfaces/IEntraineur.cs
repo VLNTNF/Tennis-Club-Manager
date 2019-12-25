@@ -4,5 +4,6 @@ using System.Text;
 
 namespace ClassesClubTennis.Acteurs {
     interface IEntraineur {
+        int NombreDeCoursAEffectuer { get; set; }
     }
 }
