@@ -2,54 +2,79 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClassesClubTennis.Acteurs {
-    class Membre : Personne, ICompetiteur {
-        public int Cotisation {
-            get { return MontantCotisation(); }
-        }
+namespace ClassesClubTennis.Acteurs
+{
+    enum TypeMembre
+    {
+        Personnel, Adherent
+    }
 
-        public bool ARegleCotisation {
+    class Membre : Personne, ICompetiteur
+    {
+        public TypeMembre Type
+        {
             get => default;
-            set {
+            set
+            {
             }
         }
 
-        public bool EstCompetiteur {
+        public int Cotisation
+        {
+            get { return MontantCotisation(); }
+        }
+
+        public bool ARegleCotisation
+        {
             get => default;
-            set {
+            set
+            {
+            }
+        }
+
+        public bool EstCompetiteur
+        {
+            get => default;
+            set
+            {
             }
         }
 
         public Classement Classement { get; set; }
 
-        public Adresse Adresse {
+        public Adresse Adresse
+        {
             get => default;
-            set {
+            set
+            {
             }
         }
 
-        public string NumeroTelephone {
+        public string NumeroTelephone
+        {
             get => default;
-            set {
+            set
+            {
             }
         }
 
-        public void ModifierNumeroTelephone(string nouveauNumero) {
+        public void ModifierNumeroTelephone(string nouveauNumero)
+        {
             throw new System.NotImplementedException();
         }
 
         public int MontantCotisation()
         {
             int res = 0;
-            if(Adresse.CodePostal == 92400)
+            if (Adresse.CodePostal == 92400)
             {
-                if (Enfant) { res+= 130; }
-                else { res+= 200; }
+                if (Enfant) { res += 130; }
+                else { res += 200; }
             }
             else
             {
-                if (Enfant) { res+= 180; }
-                else { res+= 280; }
+                if (Enfant) { res += 180; }
+                else { res += 280; }
             }
             if (EstCompetiteur)
             {
@@ -58,9 +83,13 @@ namespace ClassesClubTennis.Acteurs {
             return res;
         }
 
-        public Membre(string nom, string prenom, DateTime dateNaissance, TypeSexe sexe, int age) : base(nom, prenom, dateNaissance, sexe, age)
+        public Membre(string nom, string prenom, DateTime dateNaissance, TypeSexe sexe, string numeroTelephone, Adresse adresse, TypeMembre type, bool estCompetiteur) : base(nom, prenom, sexe, dateNaissance)
         {
-
+            this.EstCompetiteur = estCompetiteur;
+            this.ARegleCotisation = false;
+            this.NumeroTelephone = numeroTelephone;
+            this.Adresse = adresse;
+            this.Type = type;
         }
     }
 }

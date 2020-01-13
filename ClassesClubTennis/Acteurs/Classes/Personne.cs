@@ -2,35 +2,53 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClassesClubTennis.Acteurs {
-    internal abstract class Personne {
-        public string Nom {
+namespace ClassesClubTennis.Acteurs
+{
+    public enum TypeSexe
+    {
+        Masculin = 0,
+        Feminin = 1
+    }
+
+    internal abstract class Personne
+    {
+        public string Nom
+        {
             get => default;
-            set {
+            set
+            {
             }
         }
 
-        public string Prenom {
+        public string Prenom
+        {
             get => default;
-            set {
+            set
+            {
             }
         }
 
-        public System.DateTime DateNaissance {
+        public System.DateTime DateNaissance
+        {
             get => default;
-            set {
+            set
+            {
             }
         }
 
-        public TypeSexe Sexe {
+        public TypeSexe Sexe
+        {
             get => default;
-            set {
+            set
+            {
             }
         }
 
-        public int Age {
+        public int Age
+        {
             get => default;
-            set {
+            set
+            {
             }
         }
 
@@ -47,17 +65,17 @@ namespace ClassesClubTennis.Acteurs {
             return age < 18;
         }
 
-        public Personne(string nom, string prenom, TypeSexe sexe, int age)
+        public Personne(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance)
         {
             this.Nom = nom;
             this.Prenom = prenom;
             this.Sexe = sexe;
-            this.Age = age;
-            
-    }
+            this.DateNaissance = dateNaissance;
+        }
 
-    public enum TypeSexe {
-        Masculin = 0,
-        Feminin = 1
+        public override string ToString()
+        {
+            return Prenom + " " + Nom;
+        }
     }
 }
