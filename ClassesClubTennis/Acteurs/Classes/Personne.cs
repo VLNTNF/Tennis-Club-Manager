@@ -22,7 +22,7 @@ namespace ClassesClubTennis.Acteurs {
             }
         }
 
-        public Sexe Sexe {
+        public TypeSexe Sexe {
             get => default;
             set {
             }
@@ -33,9 +33,30 @@ namespace ClassesClubTennis.Acteurs {
             set {
             }
         }
+
+        public bool Enfant
+        {
+            get { return TestEnfant(DateNaissance); }
+        }
+
+        public bool TestEnfant(DateTime DateNaissance)
+        {
+            var today = DateTime.Today;
+            var age = today.Year - DateNaissance.Year;
+            if (DateNaissance.Date > today.AddYears(-age)) age--;
+            return age < 18;
+        }
+
+        public Personne(string nom, string prenom, TypeSexe sexe, int age)
+        {
+            this.Nom = nom;
+            this.Prenom = prenom;
+            this.Sexe = sexe;
+            this.Age = age;
+            
     }
 
-    enum Sexe {
+    public enum TypeSexe {
         Masculin = 0,
         Feminin = 1
     }
