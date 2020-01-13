@@ -5,19 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ClassesClubTennis.Evenements {
-    class Match {
-        public EtatMatch Etat {
-            get => default;
-            set {
-            }
+    public class Match {
+        public EtatMatch Etat { get; set; }
+
+        public Match() {
+            Etat = EtatMatch.NonJoue;
         }
     }
 
-    enum EtatMatch {
-        NonJoue,
-        EnCours,
-        Gagne,
-        Perdu,
-        Annule
+    public enum EtatMatch {
+        Annule = -2,
+        Perdu = -1,
+        NonJoue = 0,
+        Gagne = 1,
+        EnCours = 2
     }
 }
