@@ -47,14 +47,12 @@
     <Compile Include="Acteurs\Classes\EntraineurSalarie.cs" />
     <Compile Include="Acteurs\Classes\Membre.cs" />
     <Compile Include="Acteurs\Classes\Personne.cs" />
-    <Compile Include="Acteurs\Classes\President.cs" />
-    <Compile Include="Acteurs\Classes\Secretaire.cs" />
-    <Compile Include="Acteurs\Classes\Tresorier.cs" />
     <Compile Include="Acteurs\Interfaces\ICompetiteur.cs" />
     <Compile Include="Acteurs\Interfaces\IEntraineur.cs" />
     <Compile Include="Acteurs\Interfaces\ISalarie.cs" />
     <Compile Include="Générales\Adresse.cs" />
     <Compile Include="Générales\Classement.cs" />
+    <Compile Include="Générales\Club.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
