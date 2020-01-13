@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace ClassesClubTennis.Acteurs {
-    internal abstract class Personne {
+    public abstract class Personne {
         public string Nom {
             get => default;
             set {

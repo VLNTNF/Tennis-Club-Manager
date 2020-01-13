@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace ClassesClubTennis.Acteurs {
-    class Membre : Personne, ICompetiteur {
+    public class Membre : Personne, ICompetiteur {
         public int Cotisation {
             get => default;
             set {

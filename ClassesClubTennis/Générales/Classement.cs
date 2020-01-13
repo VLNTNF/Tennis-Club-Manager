@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace ClassesClubTennis {
-    class Classement {
+    public class Classement {
         public enum ValClassement {
             NC,
             Quarante,
