@@ -21,5 +21,11 @@ namespace ClassesClubTennis.Acteurs {
             set {
             }
         }
+
+        public InfoBancaire(string iban, string bic)
+        {
+            IBAN = iban;
+            BIC = bic;
+        }
     }
 }
