@@ -42,7 +42,7 @@ namespace ClassesClubTennis
             get { return adresse; }
         }
 
-        public Club(string nom, string diminutif, Adresse adresse)
+        public Club(string nom, string diminutif, Adresse adresse, Dirigeant president, List<Membre> adherents=null,List<Membre> personnel=null)
         {
             this.nom = nom;
             this.diminutif = diminutif;
@@ -73,5 +73,16 @@ namespace ClassesClubTennis
             }
         }
 
+        public void EnleverMembre(Membre membre)
+        {
+            if (membre.Type == TypeMembre.Adherent)
+            {
+                adherents.Remove(membre);
+            }
+            else
+            {
+                personnel.Remove(membre);
+            }
+        }
     }
 }
