@@ -40,7 +40,7 @@ namespace ClassesClubTennis.Acteurs
             }
         }
 
-        public Classement Classement { get; set; }
+        public Classement.ValClassement Classement { get; set; }
 
         public Adresse Adresse
         {
@@ -83,13 +83,19 @@ namespace ClassesClubTennis.Acteurs
             return res;
         }
 
-        public Membre(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse, TypeMembre type, bool estCompetiteur) : base(nom, prenom, sexe, dateNaissance)
+        public Membre(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse, TypeMembre type, bool estCompetiteur, Classement.ValClassement classement) : base(nom, prenom, sexe, dateNaissance)
         {
             EstCompetiteur = estCompetiteur;
             ARegleCotisation = false;
             NumeroTelephone = numeroTelephone;
             Adresse = adresse;
             Type = type;
+            Classement = classement;
+        }
+
+        public int CompareTo(ICompetiteur competiteur)
+        {
+            return Classement.CompareTo(competiteur.Classement);
         }
     }
 }
