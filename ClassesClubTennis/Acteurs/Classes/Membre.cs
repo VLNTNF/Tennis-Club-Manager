@@ -83,13 +83,13 @@ namespace ClassesClubTennis.Acteurs
             return res;
         }
 
-        public Membre(string nom, string prenom, DateTime dateNaissance, TypeSexe sexe, string numeroTelephone, Adresse adresse, TypeMembre type, bool estCompetiteur) : base(nom, prenom, sexe, dateNaissance)
+        public Membre(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse, TypeMembre type, bool estCompetiteur) : base(nom, prenom, sexe, dateNaissance)
         {
-            this.EstCompetiteur = estCompetiteur;
-            this.ARegleCotisation = false;
-            this.NumeroTelephone = numeroTelephone;
-            this.Adresse = adresse;
-            this.Type = type;
+            EstCompetiteur = estCompetiteur;
+            ARegleCotisation = false;
+            NumeroTelephone = numeroTelephone;
+            Adresse = adresse;
+            Type = type;
         }
     }
 }
