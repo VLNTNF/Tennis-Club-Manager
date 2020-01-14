@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
+
+
 namespace ClassesClubTennis {
     public class Classement : IComparable<Classement> {
-        public enum ValClassement {
+        public enum ValClassement
+        {
             NC,
             Quarante,
             Trente_Cinq,
@@ -30,6 +33,7 @@ namespace ClassesClubTennis {
             Moins_Quinze,
             TopCent
         }
+
 
         private static readonly Dictionary<ValClassement, string> _nomClassement = new Dictionary<ValClassement, string>() {
             {ValClassement.NC, "Non classé"},
