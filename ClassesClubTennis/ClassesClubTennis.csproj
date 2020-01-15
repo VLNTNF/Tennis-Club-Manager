@@ -63,6 +63,7 @@
     <Compile Include="Générales\Adresse.cs" />
     <Compile Include="Générales\Classement.cs" />
     <Compile Include="Générales\Club.cs" />
+    <Compile Include="Générales\Utility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
