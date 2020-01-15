@@ -11,52 +11,22 @@ namespace ClassesClubTennis.Acteurs
 
     class Membre : Personne, ICompetiteur
     {
-        public TypeMembre Type
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public TypeMembre Type { get; set; }
 
         public int Cotisation
         {
             get { return MontantCotisation(); }
         }
 
-        public bool ARegleCotisation
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public bool ARegleCotisation { get; set; }
 
-        public bool EstCompetiteur
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public bool EstCompetiteur { get; set; }
 
-        public Classement.ValClassement Classement { get; set; }
+        public Classement Classement { get; set; }
 
-        public Adresse Adresse
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Adresse Adresse { get; set; }
 
-        public string NumeroTelephone
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string NumeroTelephone { get; set; }
 
         public void ModifierNumeroTelephone(string nouveauNumero)
         {
@@ -83,7 +53,7 @@ namespace ClassesClubTennis.Acteurs
             return res;
         }
 
-        public Membre(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse, TypeMembre type, bool estCompetiteur, Classement.ValClassement classement) : base(nom, prenom, sexe, dateNaissance)
+        public Membre(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse, TypeMembre type, bool estCompetiteur, Classement classement) : base(nom, prenom, sexe, dateNaissance)
         {
             EstCompetiteur = estCompetiteur;
             ARegleCotisation = false;
@@ -105,56 +75,10 @@ namespace ClassesClubTennis.Acteurs
             TypeSexe sexe = SaisieSexe("Sexe (H/M): ");
             DateTime dateNaissance = SaisieDate("Naissance JJ/MM/AAAA: ");
             string numeroTelephone = SaisieEntree("Téléphone: ");
-            Adresse adresse =
+            Adresse adresse = Adresse.SaisieAdresse();
             TypeMembre type = SaisieTypeMembre("Type (1: Adherent, 2: Personnel): ");
-
-        }
-
-        public string SaisieEntree(string entree)
-        {
-            string res;
-            do
-            {
-                Console.Write(entree);
-                res = Console.ReadLine();
-            } while ((res == "") || (res == " "));
-            return res;
-        }
-
-        public TypeSexe SaisieSexe(string entree)
-        {
-            string typeSexe;
-            do
-            {
-                typeSexe = SaisieEntree(entree);
-            } while ((typeSexe != "H") || (typeSexe != "h") || (typeSexe != "F") || (typeSexe != "f");
-            if ((typeSexe== "H") || (typeSexe == "h"))
-            {
-                return TypeSexe.Masculin;
-            }
-            else
-            {
-                return TypeSexe.Feminin;
-            }
-        }
-
-        public DateTime SaisieDate(string entree)
-        {
-            DateTime res;
-            string saisie;
-            bool test;
-            do
-            {
-                Console.Write(entree);
-                saisie = Console.ReadLine();
-                test = DateTime.TryParse(saisie, out res);
-            } while (test == false);
-            return res;
-        }
-
-        public Adresse SaisieAdresse( )
-        {
-
+            (bool estCompetiteur, Classement classement) = Classement.SaisieCompetiteur();
+            return new Membre(nom, prenom, sexe, dateNaissance, numeroTelephone, adresse, type, estCompetiteur, classement);
         }
 
         public TypeMembre SaisieTypeMembre(string entree)
@@ -173,24 +97,5 @@ namespace ClassesClubTennis.Acteurs
                 return TypeMembre.Personnel;
             }
         }
-
-        public (bool, Classement.ValClassement) SaisieCompetiteur()
-        {
-            bool comp = false;
-            Classement.ValClassement classement;
-            string entree;
-
-            do
-            {
-                entree = SaisieEntree("Compétiteur (oui/non): ");
-            } while ((entree != "oui") || (entree != "non"));
-            if (entree != "oui")
-            {
-                comp = true;
-            }
-
-
-        }
-
     }
 }
