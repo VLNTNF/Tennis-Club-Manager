@@ -4,6 +4,6 @@ using System.Text;
 
 namespace ClassesClubTennis.Acteurs {
     public interface ICompetiteur : IComparable<ICompetiteur> {
-        Classement.ValClassement Classement { get; set; }
+        Classement Classement { get; set; }
     }
 }
