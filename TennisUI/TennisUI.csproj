@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassesClubTennis\ClassesClubTennis.csproj">
+      <Project>{225da353-2c2d-4a5e-a30c-c646a67db819}</Project>
+      <Name>ClassesClubTennis</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Menu\Menu.csproj">
       <Project>{0708db03-2820-400b-873a-e236474de96e}</Project>
       <Name>Menu</Name>
