@@ -2,14 +2,9 @@
 
 namespace MenuNS {
     /// <summary>
-    /// Délégué permettant d'exécuter les exercices
-    /// </summary>
-    public delegate void ExecExercice();
-
-    /// <summary>
     /// Class servant de support aux exercices présentés dans le menu
     /// </summary>
-    public class Exercice : IMenuItem {
+    public class Exercice : Fonction, IMenuItem {
         /// <summary>
         /// Nom de l'exercice
         /// </summary>
@@ -19,30 +14,23 @@ namespace MenuNS {
         /// Numéro de l'exercice (ex: 1-1.)
         /// </summary>
         public string Numero { get; private set; }
+        public override string TexteMenu {
+            get {
+                return ToString();
+            }
+        }
 
-        /// <summary>
-        /// Méthode de l'exercice
-        /// </summary>
-        public ExecExercice Exo { get; private set; }
-
-        /// <summary>
-        /// Constructeur de l'exercice
-        /// </summary>
-        /// <param name="nom">Nom de l'exercice</param>
-        /// <param name="numero">Numéro de l'exercice</param>
-        /// <param name="exo">Méthode de l'exercice</param>
-        public Exercice(ExecExercice exo, string numero, string nom = null) {
+        public Exercice(FonctionDele exo, string numero, string nom = null) : base(exo) {
             Nom = nom;
             Numero = numero;
-            Exo = exo;
         }
 
         /// <summary>
         /// Méthode permettant d'exécuter l'exercice
         /// </summary>
-        public void Run() {
+        public override void Run() {
             Console.Clear();
-            Exo();
+            base.Run();
         }
 
         public override string ToString() {
