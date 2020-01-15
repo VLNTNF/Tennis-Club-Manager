@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace ClassesClubTennis {
-    struct Adresse {
+    public struct Adresse {
         public string NumeroEtNomDeVoie { get; private set; }
         public int CodePostal { get; private set; }
         public string Ville { get; private set; }
@@ -42,7 +42,27 @@ namespace ClassesClubTennis {
         /// <returns>Booléen indiquant si l'adresse est dans la même ville</returns>
         public bool AMemeVille(Adresse adresse) {
             return Ville.Equals(adresse.Ville);
-        } 
+        }
+
+        public string SaisieEntree(string entree)
+        {
+            string res;
+            do
+            {
+                Console.Write(entree);
+                res = Console.ReadLine();
+            } while ((res == "") || (res == " "));
+            return res;
+        }
+
+        public Adresse SaisieAdresse()
+        {
+            string nomRue = SaisieEntree("N° et nom de rue: ");
+            int codePostal = Convert.ToInt32(SaisieEntree("Code postal: "));
+            string ville = SaisieEntree("Ville: ");
+            return new Adresse(nomRue, codePostal, ville);
+        }
+
         #endregion
     }
 }
