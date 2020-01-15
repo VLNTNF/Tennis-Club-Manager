@@ -4,53 +4,23 @@ using System.Text;
 
 namespace ClassesClubTennis.Acteurs
 {
-    public enum TypeSexe
+    enum TypeSexe
     {
         Masculin = 0,
         Feminin = 1
     }
 
-    internal abstract class Personne
+    internal abstract class Personne : Utility
     {
-        public string Nom
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Nom { get; set; }
 
-        public string Prenom
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Prenom { get; set; }
 
-        public System.DateTime DateNaissance
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public System.DateTime DateNaissance { get; set; }
 
-        public TypeSexe Sexe
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public TypeSexe Sexe { get; set; }
 
-        public int Age
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int Age { get; set; }
 
         public bool Enfant
         {
@@ -76,6 +46,23 @@ namespace ClassesClubTennis.Acteurs
         public override string ToString()
         {
             return Prenom + " " + Nom;
+        }
+
+        public TypeSexe SaisieSexe(string entree)
+        {
+            string typeSexe;
+            do
+            {
+                typeSexe = SaisieEntree(entree);
+            } while ((typeSexe != "H") || (typeSexe != "h") || (typeSexe != "F") || (typeSexe != "f"));
+            if ((typeSexe == "H") || (typeSexe == "h"))
+            {
+                return TypeSexe.Masculin;
+            }
+            else
+            {
+                return TypeSexe.Feminin;
+            }
         }
     }
 }
