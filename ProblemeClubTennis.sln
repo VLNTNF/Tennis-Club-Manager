@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassesClubTennis_Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisUI", "TennisUI\TennisUI.csproj", "{35A07610-C566-40DC-99BE-7463E35C3E34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menu", "Menu\Menu.csproj", "{0708DB03-2820-400B-873A-E236474DE96E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{35A07610-C566-40DC-99BE-7463E35C3E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35A07610-C566-40DC-99BE-7463E35C3E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35A07610-C566-40DC-99BE-7463E35C3E34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0708DB03-2820-400B-873A-E236474DE96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0708DB03-2820-400B-873A-E236474DE96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0708DB03-2820-400B-873A-E236474DE96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0708DB03-2820-400B-873A-E236474DE96E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
