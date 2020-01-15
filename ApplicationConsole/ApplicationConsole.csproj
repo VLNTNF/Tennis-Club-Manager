@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{225DA353-2C2D-4A5E-A30C-C646A67DB819}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassesClubTennis</RootNamespace>
-    <AssemblyName>ClassesClubTennis</AssemblyName>
+    <ProjectGuid>{54CBDF9C-50CF-422E-8379-28B446A32910}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ApplicationConsole</RootNamespace>
+    <AssemblyName>ApplicationConsole</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,22 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Acteurs\Classes\Adversaire.cs" />
-    <Compile Include="Acteurs\Classes\Dirigeant.cs" />
-    <Compile Include="Acteurs\Classes\EntraineurIndependant.cs" />
-    <Compile Include="Acteurs\Classes\EntraineurSalarie.cs" />
-    <Compile Include="Acteurs\Classes\Membre.cs" />
-    <Compile Include="Acteurs\Classes\Personne.cs" />
-    <Compile Include="Acteurs\Interfaces\ICompetiteur.cs" />
-    <Compile Include="Acteurs\Interfaces\IEntraineur.cs" />
-    <Compile Include="Acteurs\Interfaces\ISalarie.cs" />
-    <Compile Include="Générales\Adresse.cs" />
-    <Compile Include="Générales\Classement.cs" />
-    <Compile Include="Générales\Club.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Acteurs\DiagActeurs.cd" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassesClubTennis\ClassesClubTennis.csproj">
+      <Project>{225da353-2c2d-4a5e-a30c-c646a67db819}</Project>
+      <Name>ClassesClubTennis</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

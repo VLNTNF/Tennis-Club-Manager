@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ClassesClubTennis.Acteurs.Personne">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAGAgAAAAACAQAAAEACAAAAAAAAA=</HashCode>
+      <FileName>Acteurs\Classes\Personne.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesClubTennis.Acteurs.Adversaire" Collapsed="true">
+    <Position X="3.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Acteurs\Classes\Adversaire.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1.058" />
+  </Class>
+  <Class Name="ClassesClubTennis.Acteurs.Dirigeant" Collapsed="true">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Acteurs\Classes\Dirigeant.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassesClubTennis.Acteurs.President" Collapsed="true">
+    <Position X="0.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Acteurs\Classes\President.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesClubTennis.Acteurs.Secretaire" Collapsed="true">
+    <Position X="2.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Acteurs\Classes\Secretaire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesClubTennis.Acteurs.Tresorier" Collapsed="true">
+    <Position X="4.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Acteurs\Classes\Tresorier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesClubTennis.Acteurs.EntraineurSalarie" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Acteurs\Classes\EntraineurSalarie.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassesClubTennis.Acteurs.EntraineurIndependant" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Acteurs\Classes\EntraineurIndependant.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassesClubTennis.Acteurs.Membre" Collapsed="true">
+    <Position X="1.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAACACIAAIAAAAAAAAAAgIAAQAAAAAA=</HashCode>
+      <FileName>Acteurs\Classes\Membre.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.983" />
+  </Class>
+  <Struct Name="ClassesClubTennis.Acteurs.InfoBancaire" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAACA=</HashCode>
+      <FileName>Acteurs\Interfaces\ISalarie.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="ClassesClubTennis.Acteurs.ICompetiteur" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Acteurs\Interfaces\ICompetiteur.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ClassesClubTennis.Acteurs.ISalarie" Collapsed="true">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAACAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Acteurs\Interfaces\ISalarie.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ClassesClubTennis.Acteurs.IEntraineur" Collapsed="true">
+    <Position X="9" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Acteurs\Interfaces\IEntraineur.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="ClassesClubTennis.Acteurs.Sexe" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Acteurs\Classes\Personne.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

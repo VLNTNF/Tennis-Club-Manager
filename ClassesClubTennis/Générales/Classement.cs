@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
+
+
 namespace ClassesClubTennis {
-    class Classement {
-        public enum ValClassement {
+    public class Classement : IComparable<Classement> {
+        public enum ValClassement
+        {
             NC,
             Quarante,
             Trente_Cinq,
@@ -30,6 +33,7 @@ namespace ClassesClubTennis {
             Moins_Quinze,
             TopCent
         }
+
 
         private static readonly Dictionary<ValClassement, string> _nomClassement = new Dictionary<ValClassement, string>() {
             {ValClassement.NC, "Non classé"},
@@ -93,7 +97,7 @@ namespace ClassesClubTennis {
 
         #region Méthodes
         /// <summary>
-        /// Méthode permettant de changer modifier le classement
+        /// Méthode permettant de modifier le classement
         /// </summary>
         /// <param name="nouveauClassement">Nouveau classement à attribuer</param>
         public void ChangerClassement(ValClassement nouveauClassement) {
@@ -106,6 +110,10 @@ namespace ClassesClubTennis {
         /// <returns>String décrivant l'instance</returns>
         public override string ToString() {
             return Nom;
+        }
+
+        public int CompareTo(Classement other) {
+            return ValeurClassement.CompareTo(other.ValeurClassement);
         }
         #endregion
     }
