@@ -4,8 +4,10 @@ using System.Text;
 
 
 
-namespace ClassesClubTennis {
-    public class Classement : IComparable<Classement> {
+namespace ClassesClubTennis
+{
+    public class Classement : Utility, IComparable<Classement>
+    {
         public enum ValClassement
         {
             NC,
@@ -35,7 +37,7 @@ namespace ClassesClubTennis {
         }
 
 
-        private static readonly Dictionary<ValClassement, string> _nomClassement = new Dictionary<ValClassement, string>() {
+        public static readonly Dictionary<ValClassement, string> _nomClassement = new Dictionary<ValClassement, string>() {
             {ValClassement.NC, "Non classé"},
             {ValClassement.Quarante, "40"},
             {ValClassement.Trente_Cinq, "30/5"},
@@ -66,18 +68,20 @@ namespace ClassesClubTennis {
         /// <summary>
         /// Valeur de l'enum correspondant au classement
         /// </summary>
-        public ValClassement ValeurClassement { get; private set; } = ValClassement.NC;
+        public ValClassement ValeurClassement { get; set; } = ValClassement.NC;
 
         /// <summary>
         /// String décrivant correctement le nom du classement
         /// </summary>
-        public string Nom {
-            get {
+        public string Nom
+        {
+            get
+            {
                 string retour;
                 _nomClassement.TryGetValue(ValeurClassement, out retour);
                 return retour;
             }
-        } 
+        }
         #endregion
 
         #region Constructeurs
@@ -90,7 +94,8 @@ namespace ClassesClubTennis {
         /// Constructeur dans le cas où le compétiteur a déjà un classement
         /// </summary>
         /// <param name="classementInitial">Classement du compétiteur au moment de sa création</param>
-        public Classement(ValClassement classementInitial) {
+        public Classement(ValClassement classementInitial)
+        {
             ValeurClassement = classementInitial;
         }
         #endregion
@@ -100,7 +105,8 @@ namespace ClassesClubTennis {
         /// Méthode permettant de modifier le classement
         /// </summary>
         /// <param name="nouveauClassement">Nouveau classement à attribuer</param>
-        public void ChangerClassement(ValClassement nouveauClassement) {
+        public void ChangerClassement(ValClassement nouveauClassement)
+        {
             ValeurClassement = nouveauClassement;
         }
 
@@ -108,12 +114,128 @@ namespace ClassesClubTennis {
         /// Méthode décrivant l'instance par un string
         /// </summary>
         /// <returns>String décrivant l'instance</returns>
-        public override string ToString() {
+        public override string ToString()
+        {
             return Nom;
         }
 
-        public int CompareTo(Classement other) {
+        public int CompareTo(Classement other)
+        {
             return ValeurClassement.CompareTo(other.ValeurClassement);
+        }
+
+        public ValClassement SaisieClassement()
+        {
+            ValClassement classement = ValClassement.NC;
+            string entree;
+            bool test = true;
+            do
+            {
+                entree = SaisieEntree("Classement (NC, 40, 30/5, ... , Top 100): ");
+                switch (entree)
+                {
+                    case ("NC"):
+                        classement = ValClassement.NC;
+                        break;
+                    case ("40"):
+                        classement = ValClassement.Quarante;
+                        break;
+                    case ("30/5"):
+                        classement = ValClassement.Trente_Cinq;
+                        break;
+                    case ("30/4"):
+                        classement = ValClassement.Trente_Quatre;
+                        break;
+                    case ("30/3"):
+                        classement = ValClassement.Trente_Trois;
+                        break;
+                    case ("30/2"):
+                        classement = ValClassement.Trente_Deux;
+                        break;
+                    case ("30/1"):
+                        classement = ValClassement.Trente_Un;
+                        break;
+                    case ("30"):
+                        classement = ValClassement.Trente;
+                        break;
+                    case ("15/5"):
+                        classement = ValClassement.Quinze_Cinq;
+                        break;
+                    case ("15/4"):
+                        classement = ValClassement.Quinze_Quatre;
+                        break;
+                    case ("15/3"):
+                        classement = ValClassement.Quinze_Trois;
+                        break;
+                    case ("15/2"):
+                        classement = ValClassement.Quinze_Deux;
+                        break;
+                    case ("15/1"):
+                        classement = ValClassement.Quinze_Un;
+                        break;
+                    case ("15"):
+                        classement = ValClassement.Quinze;
+                        break;
+                    case ("5/6"):
+                        classement = ValClassement.Cinq_Six;
+                        break;
+                    case ("4/6"):
+                        classement = ValClassement.Quatre_Six;
+                        break;
+                    case ("3/6"):
+                        classement = ValClassement.Trois_Six;
+                        break;
+                    case ("2/6"):
+                        classement = ValClassement.Deux_Six;
+                        break;
+                    case ("1/6"):
+                        classement = ValClassement.Un_Six;
+                        break;
+                    case ("0"):
+                        classement = ValClassement.Zero;
+                        break;
+                    case ("-2/6"):
+                        classement = ValClassement.Moins_Deux_Six;
+                        break;
+                    case ("-4/6"):
+                        classement = ValClassement.Moins_Quatre_Six;
+                        break;
+                    case ("-15"):
+                        classement = ValClassement.Moins_Quinze;
+                        break;
+                    case ("Top 100"):
+                        classement = ValClassement.TopCent;
+                        break;
+                    default:
+                        test = false;
+                        break;
+
+                }
+            } while (test == false);
+            return classement;
+        }
+
+        public (bool, Classement) SaisieCompetiteur()
+        {
+            bool comp = false;
+            Classement classement = new ClassesClubTennis.Classement();
+            string entree;
+
+            do
+            {
+                entree = SaisieEntree("Compétiteur (oui/non): ");
+            } while ((entree != "oui") || (entree != "non"));
+            if (entree != "oui")
+            {
+                comp = true;
+            }
+
+            if (comp)
+            {
+                classement.ValeurClassement = SaisieClassement();
+            }
+            else { classement.ValeurClassement = Classement.ValClassement.NC; }
+            return (comp, classement);
         }
         #endregion
     }
