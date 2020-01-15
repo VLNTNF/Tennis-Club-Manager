@@ -5,7 +5,7 @@ using System.Text;
 namespace ClassesClubTennis.Acteurs {
     sealed class Adversaire : Personne, ICompetiteur 
     {
-        public Classement.ValClassement Classement { get; set; }
+        public Classement Classement { get; set; }
 
         public Club Club { get; set; }
 
