@@ -50,6 +50,16 @@
     <Compile Include="Acteurs\Interfaces\ICompetiteur.cs" />
     <Compile Include="Acteurs\Interfaces\IEntraineur.cs" />
     <Compile Include="Acteurs\Interfaces\ISalarie.cs" />
+    <Compile Include="Evenements\Classes\Competition.cs" />
+    <Compile Include="Evenements\Classes\CompetitionEquipe.cs" />
+    <Compile Include="Evenements\Classes\CompetitionSimple.cs" />
+    <Compile Include="Evenements\Classes\Equipe.cs" />
+    <Compile Include="Evenements\Classes\Evenements.cs" />
+    <Compile Include="Evenements\Interfaces\IEvenement.cs" />
+    <Compile Include="Evenements\Classes\Match.cs" />
+    <Compile Include="Evenements\Classes\MatchDouble.cs" />
+    <Compile Include="Evenements\Classes\MatchSimple.cs" />
+    <Compile Include="Evenements\Classes\Stage.cs" />
     <Compile Include="Générales\Adresse.cs" />
     <Compile Include="Générales\Classement.cs" />
     <Compile Include="Générales\Club.cs" />
@@ -57,6 +67,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Acteurs\DiagActeurs.cd" />
+    <None Include="Evenements\DiagEvenements.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

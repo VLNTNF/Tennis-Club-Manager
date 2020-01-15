@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ClassesClubTennis.Evenements.Competition" Collapsed="true">
+    <Position X="1.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAgAAAAAAAAAABCAAAAIFgAAAAACAAAA=</HashCode>
+      <FileName>Evenements\Classes\Competition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassesClubTennis.Evenements.CompetitionEquipe" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Evenements\Classes\CompetitionEquipe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesClubTennis.Evenements.CompetitionSimple" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Evenements\Classes\CompetitionSimple.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesClubTennis.Evenements.Equipe" Collapsed="true">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAgAAAAACAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Evenements\Classes\Equipe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesClubTennis.Evenements.Evenements" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAIAAAAAAAAAACAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Evenements\Classes\Evenements.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClassesClubTennis.Evenements.Match" Collapsed="true">
+    <Position X="3.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Evenements\Classes\Match.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesClubTennis.Evenements.MatchDouble" Collapsed="true">
+    <Position X="2.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Evenements\Classes\MatchDouble.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesClubTennis.Evenements.MatchSimple" Collapsed="true">
+    <Position X="4.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Evenements\Classes\MatchSimple.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesClubTennis.Evenements.Stage" Collapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAEAAAEAAACAAAAAhgAAAAAAAAAA=</HashCode>
+      <FileName>Evenements\Classes\Stage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="ClassesClubTennis.Evenements.IEvenement" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Evenements\Interfaces\IEvenement.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="ClassesClubTennis.Evenements.NiveauCompetition" Collapsed="true">
+    <Position X="7.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAEAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Evenements\Classes\Competition.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ClassesClubTennis.Evenements.TypeCompetition" Collapsed="true">
+    <Position X="9" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAACAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Evenements\Classes\Competition.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ClassesClubTennis.Evenements.EtatMatch" Collapsed="true">
+    <Position X="5.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAEAAAAAAAAAAAAgAAAAAAAAAgQAAA=</HashCode>
+      <FileName>Evenements\Classes\Match.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
