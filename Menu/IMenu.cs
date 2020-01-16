@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MenuNS {
-    interface IMenu : IMenuItem {
+    public interface IMenu : IMenuItem {
         int SaisieMenu();
         void AfficherMenu();
         int SaisieNombre(int borneMin, int borneMax);
