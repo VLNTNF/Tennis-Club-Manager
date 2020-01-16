@@ -7,14 +7,14 @@ using ClassesClubTennis.Acteurs;
 
 namespace ClassesClubTennis
 {
-    public class Club
+    public class Club : Utility
     {
         private string nom;
         private string diminutif;
         private Adresse adresse;
-        private List<Membre> adherents;
-        private List<Membre> personnel;
-        private List<EntraineurIndependant> independants;
+        private List<Personne> adherents;
+        private List<Personne> personnel;
+        private List<Personne> independants;
         private Dirigeant president;
         private Dirigeant secretaire;
         private Dirigeant tresorier;
@@ -37,19 +37,19 @@ namespace ClassesClubTennis
             set { tresorier = value; }
         }
 
-        public List<Membre> Adherents
+        public List<Personne> Adherents
         {
             get { return adherents; }
             set { adherents = value; }
         }
 
-        public List<Membre> Personnel
+        public List<Personne> Personnel
         {
             get { return personnel; }
             set { personnel = value; }
         }
 
-        public List<EntraineurIndependant> Independants
+        public List<Personne> Independants
         {
             get { return independants; }
             set { independants = value; }
@@ -70,8 +70,8 @@ namespace ClassesClubTennis
             get { return adresse; }
         }
 
-        public Club(string nom, string diminutif, Adresse adresse, Dirigeant president = null, Dirigeant secretaire = null, Dirigeant tresorier = null, List<Membre> adherents = null, 
-            List<Membre> personnel = null, List<EntraineurIndependant> independants = null)
+        public Club(string nom, string diminutif, Adresse adresse, Dirigeant president = null, Dirigeant secretaire = null, Dirigeant tresorier = null, List<Personne> adherents = null,
+            List<Personne> personnel = null, List<Personne> independants = null)
         {
             this.nom = nom;
             this.diminutif = diminutif;
@@ -116,9 +116,9 @@ namespace ClassesClubTennis
             Dirigeant Tresorier = new Dirigeant("Duhamel", "Sandrine", TypeSexe.Feminin, DateTime.Parse("26/12/1970"), "0647896402", new Adresse("7 Boulevard des Pins", 92400, "Courbevoie"), TypeDirigeant.Tresorier, TypeMembre.Personnel, 1900, DateTime.Parse("22/01/2015"), new InfoBancaire("FR7610107001011234567890129", "BREDFRPPXXX"));
 
 
-            List<Membre> adherents = new List<Membre> { Durand, Dupond, Laforge, Laforge2, Laforge3, Laforge4, Fournier, Fournier2, Garcia, Garcia2, Garcia3, Leroy, Leroy2 };
-            List<Membre> personnel = new List<Membre> { Ace, Match, Double, President, Secretaire, Tresorier };
-            List<EntraineurIndependant> independants = new List<EntraineurIndependant> { Lemur, Set, Service };
+            List<Personne> adherents = new List<Personne> { Durand, Dupond, Laforge, Laforge2, Laforge3, Laforge4, Fournier, Fournier2, Garcia, Garcia2, Garcia3, Leroy, Leroy2 };
+            List<Personne> personnel = new List<Personne> { President, Secretaire, Tresorier, Ace, Match, Double };
+            List<Personne> independants = new List<Personne> { Lemur, Set, Service };
 
             this.president = President;
             this.secretaire = Secretaire;
@@ -157,37 +157,89 @@ namespace ClassesClubTennis
             }
         }
 
-        public void AfficherMembres(TypeMembre type)
+        public void AjouterIndependant(EntraineurIndependant inde)
         {
-            List<Membre> list = new List<Membre>();
-            if(type == TypeMembre.Adherent) 
-            {
-                list = Adherents;
-            }
-            else
-            {
-                list = Personnel;
-            }
-            foreach(Membre m in list)
-            {
-                string s = m.ToString();
-                if (type == TypeMembre.Personnel)
-                {
-                    if
-                    {
+            independants.Add(inde);
+        }
 
+        public void EnleverIndependant(EntraineurIndependant inde)
+        {
+            independants.Remove(inde);
+        }
+
+        public void AfficherPersonnes()
+        {
+            int c = 0;
+            Console.WriteLine("Adhérents:");
+            List<Personne> list1 = Adherents;
+            foreach (Membre m in list1)
+            {
+                string s = c + " " + m.ToString();
+                if (m.EstCompetiteur)
+                {
+                    s += " : compétiteur";
+                }
+                Console.WriteLine(s);
+                c++;
+            }
+            Console.WriteLine();
+            Console.WriteLine("Personnel:");
+            List<Personne> list2 = Personnel;
+            foreach (Membre m in list2)
+            {
+                string s = c + " " + m.ToString();
+                s += " : ";
+                if (m.GetType() == typeof(Dirigeant))
+                {
+                    Dirigeant d = (Dirigeant)m;
+                    if (d.TypeDirigeant == TypeDirigeant.President)
+                    {
+                        s += "président";
+                    }
+                    else if ((d.TypeDirigeant == TypeDirigeant.Secretaire))
+                    {
+                        s += "secrétaire";
+                    }
+                    else if ((d.TypeDirigeant == TypeDirigeant.Tresorier))
+                    {
+                        s += "trésorier";
                     }
                 }
-                Console.WriteLine(m);
+                else
+                {
+                    s += "entraineur salarié";
+                }
+                Console.WriteLine(s);
+                c++;
+            }
+            Console.WriteLine();
+            Console.WriteLine("Indépendants:");
+            foreach (EntraineurIndependant e in Independants)
+            {
+                Console.WriteLine(c + " " + e + " : entraineur indépendant");
+                c++;
             }
         }
 
-        public void AfficherIndependants()
+        public Personne SelectionnerPersonne()
         {
-            foreach(EntraineurIndependant e in Independants)
+            AfficherPersonnes();
+            Console.WriteLine();
+            int x = SaisiePositive("Numéro: ");
+            Personne p = new Personne();
+            if (x <= Adherents.Count)
             {
-                Console.WriteLine(e);
+                p = Adherents[x - 1];
             }
+            else if (x <= Personnel.Count)
+            {
+                p = Personnel[x - Adherents.Count - 1];
+            }
+            else
+            {
+                p = Independants[x - Adherents.Count - Personnel.Count - 1];
+            }
+            return p;
         }
     }
 }
