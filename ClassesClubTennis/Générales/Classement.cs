@@ -124,7 +124,7 @@ namespace ClassesClubTennis
             return ValeurClassement.CompareTo(other.ValeurClassement);
         }
 
-        public ValClassement SaisieClassement()
+        public static ValClassement SaisieClassement()
         {
             ValClassement classement = ValClassement.NC;
             string entree;
@@ -215,26 +215,26 @@ namespace ClassesClubTennis
             return classement;
         }
 
-        public (bool, Classement) SaisieCompetiteur()
+        public static (bool, Classement) SaisieCompetiteur()
         {
             bool comp = false;
-            Classement classement = new ClassesClubTennis.Classement();
+            Classement classement = new Classement();
             string entree;
 
             do
             {
                 entree = SaisieEntree("Compétiteur (oui/non): ");
-            } while ((entree != "oui") || (entree != "non"));
-            if (entree != "oui")
+            } while ((entree != "oui") && (entree != "non"));
+            if (entree == "oui")
             {
                 comp = true;
             }
 
             if (comp)
             {
-                classement.ValeurClassement = SaisieClassement();
+                classement.ChangerClassement(SaisieClassement());
             }
-            else { classement.ValeurClassement = Classement.ValClassement.NC; }
+            else { classement.ChangerClassement(ValClassement.NC); }
             return (comp, classement);
         }
         #endregion
