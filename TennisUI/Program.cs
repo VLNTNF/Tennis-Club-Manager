@@ -19,9 +19,7 @@ namespace TennisUI
             //club.AjouterMembre(membre);
             //Console.WriteLine();
             //membre.Afficher();
-            club.AfficherAdherents();
-            Console.WriteLine();
-            club.Adherents[0].Afficher();
+            club.AfficherPersonnes();
             Console.ReadKey();
 
             /*
