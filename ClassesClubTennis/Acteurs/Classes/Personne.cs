@@ -48,13 +48,13 @@ namespace ClassesClubTennis.Acteurs
             return Prenom + " " + Nom;
         }
 
-        public TypeSexe SaisieSexe(string entree)
+        public static TypeSexe SaisieSexe(string entree)
         {
             string typeSexe;
             do
             {
                 typeSexe = SaisieEntree(entree);
-            } while ((typeSexe != "H") || (typeSexe != "h") || (typeSexe != "F") || (typeSexe != "f"));
+            } while ((typeSexe != "H") && (typeSexe != "h") && (typeSexe != "F") && (typeSexe != "f"));
             if ((typeSexe == "H") || (typeSexe == "h"))
             {
                 return TypeSexe.Masculin;
