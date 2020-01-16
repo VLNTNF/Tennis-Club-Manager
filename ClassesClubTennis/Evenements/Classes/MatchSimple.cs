@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassesClubTennis.Acteurs;
 
 namespace ClassesClubTennis.Evenements {
-    class MatchSimple : Match {
+    public class MatchSimple : Match {
         public Membre MembreClub {
             get => default;
             set {
