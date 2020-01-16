@@ -8,7 +8,7 @@ namespace ClassesClubTennis
 {
     public class Utility
     {
-        public string SaisieEntree(string entree)
+        public static string SaisieEntree(string entree)
         {
             string res;
             do
@@ -19,7 +19,7 @@ namespace ClassesClubTennis
             return res;
         }
 
-        public DateTime SaisieDate(string entree)
+        public static DateTime SaisieDate(string entree)
         {
             DateTime res;
             string saisie;
