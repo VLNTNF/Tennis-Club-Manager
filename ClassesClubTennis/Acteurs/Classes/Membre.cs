@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ClassesClubTennis;
 
 namespace ClassesClubTennis.Acteurs
 {
@@ -30,7 +31,7 @@ namespace ClassesClubTennis.Acteurs
 
         public void ModifierNumeroTelephone(string nouveauNumero)
         {
-            throw new System.NotImplementedException();
+            NumeroTelephone = SaisieEntree("Téléphone: ");
         }
 
         public int MontantCotisation()
@@ -53,6 +54,8 @@ namespace ClassesClubTennis.Acteurs
             return res;
         }
 
+        public Membre(string nom=null, string prenom = null, TypeSexe sexe = default(TypeSexe), DateTime dateNaissance = default(DateTime)) : base(nom,prenom, sexe, dateNaissance) { }
+
         public Membre(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse, TypeMembre type, bool estCompetiteur, Classement classement) : base(nom, prenom, sexe, dateNaissance)
         {
             EstCompetiteur = estCompetiteur;
@@ -68,7 +71,23 @@ namespace ClassesClubTennis.Acteurs
             return Classement.CompareTo(competiteur.Classement);
         }
 
-        public Membre CreationMembre()
+        public void Afficher()
+        {
+            Console.WriteLine("Nom: " + Nom);
+            Console.WriteLine("Prénom: " + Prenom);
+            Console.WriteLine("Sexe: " + Sexe);
+            Console.WriteLine("Naissance: " + DateNaissance);
+            Console.WriteLine("Téléphone: " + NumeroTelephone);
+            Console.WriteLine("Adresse: " + Adresse);
+            Console.WriteLine("Type: " + Type);
+            Console.WriteLine("Compétiteur: " + EstCompetiteur);
+            if (EstCompetiteur)
+            {
+                Console.WriteLine("Classement: " + Classement.Nom);
+            }
+        }
+
+        public static Membre Creation()
         {
             string nom = SaisieEntree("Nom: ");
             string prenom = SaisieEntree("Prénom: ");
@@ -81,13 +100,13 @@ namespace ClassesClubTennis.Acteurs
             return new Membre(nom, prenom, sexe, dateNaissance, numeroTelephone, adresse, type, estCompetiteur, classement);
         }
 
-        public TypeMembre SaisieTypeMembre(string entree)
+        public static TypeMembre SaisieTypeMembre(string entree)
         {
             string typeMembre;
             do
             {
                 typeMembre = SaisieEntree(entree);
-            } while ((typeMembre != "1") || (typeMembre != "2") || (typeMembre != "Adherent") || (typeMembre != "Personnel"));
+            } while ((typeMembre != "1") && (typeMembre != "2") && (typeMembre != "Adherent") && (typeMembre != "Personnel"));
             if ((typeMembre == "1") || (typeMembre == "Adherent"))
             {
                 return TypeMembre.Adherent;
