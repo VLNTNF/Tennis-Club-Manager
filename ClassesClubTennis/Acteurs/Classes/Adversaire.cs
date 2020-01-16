@@ -18,5 +18,15 @@ namespace ClassesClubTennis.Acteurs {
         {
             return Classement.CompareTo(competiteur.Classement);
         }
+
+        public void Afficher()
+        {
+            Console.WriteLine("Type: Adversaire");
+            Console.WriteLine("Nom: " + Nom);
+            Console.WriteLine("Prénom: " + Prenom);
+            Console.WriteLine("Sexe: " + Sexe);
+            Console.WriteLine("Naissance: " + DateNaissance);
+            Console.WriteLine("Club: " + Club);
+        }
     }
 }

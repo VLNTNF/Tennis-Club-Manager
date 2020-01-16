@@ -73,13 +73,13 @@ namespace ClassesClubTennis.Acteurs
 
         public void Afficher()
         {
+            Console.WriteLine("Type: " + Type);
             Console.WriteLine("Nom: " + Nom);
             Console.WriteLine("Prénom: " + Prenom);
             Console.WriteLine("Sexe: " + Sexe);
             Console.WriteLine("Naissance: " + DateNaissance);
             Console.WriteLine("Téléphone: " + NumeroTelephone);
             Console.WriteLine("Adresse: " + Adresse);
-            Console.WriteLine("Type: " + Type);
             Console.WriteLine("Compétiteur: " + EstCompetiteur);
             if (EstCompetiteur)
             {
@@ -95,7 +95,7 @@ namespace ClassesClubTennis.Acteurs
             DateTime dateNaissance = SaisieDate("Naissance JJ/MM/AAAA: ");
             string numeroTelephone = SaisieEntree("Téléphone: ");
             Adresse adresse = Adresse.SaisieAdresse();
-            TypeMembre type = SaisieTypeMembre("Type (1: Adherent, 2: Personnel): ");
+            TypeMembre type = TypeMembre.Adherent;
             (bool estCompetiteur, Classement classement) = Classement.SaisieCompetiteur();
             return new Membre(nom, prenom, sexe, dateNaissance, numeroTelephone, adresse, type, estCompetiteur, classement);
         }
