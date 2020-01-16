@@ -10,7 +10,7 @@ namespace ClassesClubTennis.Acteurs
         Feminin = 1
     }
 
-    public abstract class Personne : Utility
+    public class Personne : Utility
     {
         public string Nom { get; set; }
 
@@ -34,6 +34,8 @@ namespace ClassesClubTennis.Acteurs
             if (DateNaissance.Date > today.AddYears(-age)) age--;
             return age < 18;
         }
+
+        public Personne() { }
 
         public Personne(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance)
         {
