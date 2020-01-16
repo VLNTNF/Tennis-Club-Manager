@@ -108,18 +108,21 @@ namespace ClassesClubTennis
             EntraineurIndependant Set = new EntraineurIndependant("Set", "Claudine", TypeSexe.Feminin, DateTime.Parse("12/05/1980"), 2);
             EntraineurIndependant Service = new EntraineurIndependant("Service", "Marie", TypeSexe.Feminin, DateTime.Parse("17/02/1995"), 2);
 
-            Membre Ace = new EntraineurSalarie("Ace", "Romain", TypeSexe.Masculin, DateTime.Parse("25/04/1990"), "0782510896", new Adresse("3 Rue de l'Est", 92400, "Courbevoie"), true, 1500, DateTime.Parse("24/07/2019"), new InfoBancaire("FR7630001007941234567890185", "BDFEFRPPCCT"), new Classement(Classement.ValClassement.Un_Six), 10);
-            Membre Match = new EntraineurSalarie("Match", "Pierre", TypeSexe.Masculin, DateTime.Parse("15/10/1979"), "0685198348", new Adresse("16 Rue des Gemmes", 92400, "Courbevoie"), true, 1400, DateTime.Parse("10/11/2019"), new InfoBancaire("FR7630004000031234567890143", "BNPAFRPPXXX"), new Classement(Classement.ValClassement.Quatre_Six), 10);
-            Membre Double = new EntraineurSalarie("Double", "Paul", TypeSexe.Masculin, DateTime.Parse("20/03/2009"), "0786240780", new Adresse("1 Route de la Couronne", 92000, "Nanterre"), true, 1400, DateTime.Parse("07/12/2019"), new InfoBancaire("FR7630006000011234567890189", "AGRIFRPP"), new Classement(Classement.ValClassement.Quatre_Six), 10);
-            Membre President = new Dirigeant("Duhamel", "Laurent", TypeSexe.Masculin, DateTime.Parse("02/02/1970"), "0661468541", new Adresse("7 Boulevard des Pins", 92400, "Courbevoie"), TypeDirigeant.President, TypeMembre.Personnel, 2500, DateTime.Parse("22/01/2015"), new InfoBancaire("FR7610107001011234567890129", "BREDFRPPXXX"));
-            Membre Secretaire = new Dirigeant("Desmoulins", "Clara", TypeSexe.Feminin, DateTime.Parse("18/04/1982"), "0645984101", new Adresse("19 Rue de la Place", 95100, "Argenteuil"), TypeDirigeant.Secretaire, TypeMembre.Personnel, 1900, DateTime.Parse("22/01/2015"), new InfoBancaire("FR7611315000011234567890138", "CEPAFRPP131"));
-            Membre Tresorier = new Dirigeant("Duhamel", "Sandrine", TypeSexe.Feminin, DateTime.Parse("26/12/1970"), "0647896402", new Adresse("7 Boulevard des Pins", 92400, "Courbevoie"), TypeDirigeant.Tresorier, TypeMembre.Personnel, 1900, DateTime.Parse("22/01/2015"), new InfoBancaire("FR7610107001011234567890129", "BREDFRPPXXX"));
+            EntraineurSalarie Ace = new EntraineurSalarie("Ace", "Romain", TypeSexe.Masculin, DateTime.Parse("25/04/1990"), "0782510896", new Adresse("3 Rue de l'Est", 92400, "Courbevoie"), true, 1500, DateTime.Parse("24/07/2019"), new InfoBancaire("FR7630001007941234567890185", "BDFEFRPPCCT"), new Classement(Classement.ValClassement.Un_Six), 10);
+            EntraineurSalarie Match = new EntraineurSalarie("Match", "Pierre", TypeSexe.Masculin, DateTime.Parse("15/10/1979"), "0685198348", new Adresse("16 Rue des Gemmes", 92400, "Courbevoie"), true, 1400, DateTime.Parse("10/11/2019"), new InfoBancaire("FR7630004000031234567890143", "BNPAFRPPXXX"), new Classement(Classement.ValClassement.Quatre_Six), 10);
+            EntraineurSalarie Double = new EntraineurSalarie("Double", "Paul", TypeSexe.Masculin, DateTime.Parse("20/03/2009"), "0786240780", new Adresse("1 Route de la Couronne", 92000, "Nanterre"), true, 1400, DateTime.Parse("07/12/2019"), new InfoBancaire("FR7630006000011234567890189", "AGRIFRPP"), new Classement(Classement.ValClassement.Quatre_Six), 10);
+            Dirigeant President = new Dirigeant("Duhamel", "Laurent", TypeSexe.Masculin, DateTime.Parse("02/02/1970"), "0661468541", new Adresse("7 Boulevard des Pins", 92400, "Courbevoie"), TypeDirigeant.President, TypeMembre.Personnel, 2500, DateTime.Parse("22/01/2015"), new InfoBancaire("FR7610107001011234567890129", "BREDFRPPXXX"));
+            Dirigeant Secretaire = new Dirigeant("Desmoulins", "Clara", TypeSexe.Feminin, DateTime.Parse("18/04/1982"), "0645984101", new Adresse("19 Rue de la Place", 95100, "Argenteuil"), TypeDirigeant.Secretaire, TypeMembre.Personnel, 1900, DateTime.Parse("22/01/2015"), new InfoBancaire("FR7611315000011234567890138", "CEPAFRPP131"));
+            Dirigeant Tresorier = new Dirigeant("Duhamel", "Sandrine", TypeSexe.Feminin, DateTime.Parse("26/12/1970"), "0647896402", new Adresse("7 Boulevard des Pins", 92400, "Courbevoie"), TypeDirigeant.Tresorier, TypeMembre.Personnel, 1900, DateTime.Parse("22/01/2015"), new InfoBancaire("FR7610107001011234567890129", "BREDFRPPXXX"));
 
 
             List<Membre> adherents = new List<Membre> { Durand, Dupond, Laforge, Laforge2, Laforge3, Laforge4, Fournier, Fournier2, Garcia, Garcia2, Garcia3, Leroy, Leroy2 };
             List<Membre> personnel = new List<Membre> { Ace, Match, Double, President, Secretaire, Tresorier };
             List<EntraineurIndependant> independants = new List<EntraineurIndependant> { Lemur, Set, Service };
 
+            this.president = President;
+            this.secretaire = Secretaire;
+            this.tresorier = Tresorier;
             this.adherents = adherents;
             this.personnel = personnel;
             this.independants = independants;
@@ -151,6 +154,39 @@ namespace ClassesClubTennis
             else
             {
                 personnel.Remove(membre);
+            }
+        }
+
+        public void AfficherMembres(TypeMembre type)
+        {
+            List<Membre> list = new List<Membre>();
+            if(type == TypeMembre.Adherent) 
+            {
+                list = Adherents;
+            }
+            else
+            {
+                list = Personnel;
+            }
+            foreach(Membre m in list)
+            {
+                string s = m.ToString();
+                if (type == TypeMembre.Personnel)
+                {
+                    if
+                    {
+
+                    }
+                }
+                Console.WriteLine(m);
+            }
+        }
+
+        public void AfficherIndependants()
+        {
+            foreach(EntraineurIndependant e in Independants)
+            {
+                Console.WriteLine(e);
             }
         }
     }
