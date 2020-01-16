@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassesClubTennis.Acteurs
 {
-    sealed class EntraineurSalarie : Membre, IEntraineur, ISalarie, ICompetiteur
+    public sealed class EntraineurSalarie : Membre, IEntraineur, ISalarie, ICompetiteur
     {
         public double Salaire { get; set; }
         public DateTime DateEntreeClub { get; set; }

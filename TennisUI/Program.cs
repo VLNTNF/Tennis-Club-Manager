@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MenuNS;
+using ClassesClubTennis;
+using ClassesClubTennis.Acteurs;
 
 namespace TennisUI
 {
@@ -73,7 +75,7 @@ namespace TennisUI
         }
 
         private static FonctionDele CreationMembre() {
-            throw new NotImplementedException();
+            Ajouter;
         } 
         #endregion
     }

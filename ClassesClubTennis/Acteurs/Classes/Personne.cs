@@ -4,13 +4,13 @@ using System.Text;
 
 namespace ClassesClubTennis.Acteurs
 {
-    enum TypeSexe
+    public enum TypeSexe
     {
         Masculin = 0,
         Feminin = 1
     }
 
-    internal abstract class Personne : Utility
+    public abstract class Personne : Utility
     {
         public string Nom { get; set; }
 

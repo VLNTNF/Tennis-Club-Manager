@@ -4,12 +4,12 @@ using System.Text;
 
 namespace ClassesClubTennis.Acteurs
 {
-    enum TypeMembre
+    public enum TypeMembre
     {
         Personnel, Adherent
     }
 
-    class Membre : Personne, ICompetiteur
+    public class Membre : Personne, ICompetiteur
     {
         public TypeMembre Type { get; set; }
 

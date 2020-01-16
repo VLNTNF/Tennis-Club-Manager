@@ -2,10 +2,10 @@
 
 namespace ClassesClubTennis.Acteurs
 {
-    enum TypeDirigeant
+    public enum TypeDirigeant
     { President, Secretaire, Tresorier }
 
-    class Dirigeant : Membre, ISalarie
+    public class Dirigeant : Membre, ISalarie
     {
         public TypeDirigeant TypeDirigeant { get; set; }
         public double Salaire { get; set; }

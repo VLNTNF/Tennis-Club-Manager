@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassesClubTennis.Acteurs
 {
-    sealed class EntraineurIndependant : Personne, IEntraineur
+    public sealed class EntraineurIndependant : Personne, IEntraineur
     {
         public int NombreDeCoursAEffectuer { get; set; }
 

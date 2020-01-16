@@ -7,7 +7,7 @@ using ClassesClubTennis.Acteurs;
 
 namespace ClassesClubTennis
 {
-    class Club
+    public class Club
     {
         private string nom;
         private string diminutif;
