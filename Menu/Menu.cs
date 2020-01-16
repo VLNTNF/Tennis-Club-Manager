@@ -66,7 +66,7 @@ namespace MenuNS {
             /// Méthode servant à afficher le menu et récupérer le choix de l'utilisateur
             /// </summary>
             /// <returns>La valeur correspondant à l'item dans le menu (1 à n) et 0 si l'utilisateur veut sortir du menu</returns>
-            private int SaisieMenu() {
+            public int SaisieMenu() {
                 AfficherMenu();
 
                 return SaisieNombre(0, Items.Count);
@@ -75,7 +75,7 @@ namespace MenuNS {
             /// <summary>
             /// Méthode d'affichage du menu
             /// </summary>
-            private void AfficherMenu() {
+            public void AfficherMenu() {
                 Console.WriteLine(this);
 
                 for (int i = 0; i < Items.Count; i++) {
@@ -91,7 +91,7 @@ namespace MenuNS {
             /// <param name="borneMin">Valeur minimum que l'utilisateur peut rentrer</param>
             /// <param name="borneMax">Valeur maximum que l'utilisateur peut rentrer</param>
             /// <returns>Valeur choisie par l'utilisateur</returns>
-            private static int SaisieNombre(int borneMin, int borneMax) {
+            public int SaisieNombre(int borneMin, int borneMax) {
                 int input = -1, compteurErreurs = 0;
                 bool estUneValeurValide = false;
                 string retour = null;
@@ -174,7 +174,7 @@ namespace MenuNS {
             }
 
             return retour;
-        } 
+        }
         #endregion
     }
 }
