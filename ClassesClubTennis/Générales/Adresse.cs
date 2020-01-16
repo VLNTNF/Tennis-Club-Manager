@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClassesClubTennis {
-    public struct Adresse {
+namespace ClassesClubTennis
+{
+    public struct Adresse
+    {
         public string NumeroEtNomDeVoie { get; private set; }
         public int CodePostal { get; private set; }
         public string Ville { get; private set; }
 
-        public Adresse(string numeroEtNomDeVoie, int codePostal, string ville) {
+        public Adresse(string numeroEtNomDeVoie, int codePostal, string ville)
+        {
             NumeroEtNomDeVoie = numeroEtNomDeVoie;
             CodePostal = codePostal;
             Ville = ville;
@@ -21,7 +24,8 @@ namespace ClassesClubTennis {
         /// <param name="numeroEtNomDeVoie">Nouvelle voie</param>
         /// <param name="codePostal">Nouveau code postal</param>
         /// <param name="ville">Nouvelle ville</param>
-        public void Demenager(string numeroEtNomDeVoie, int codePostal, string ville) {
+        public void Demenager(string numeroEtNomDeVoie, int codePostal, string ville)
+        {
             NumeroEtNomDeVoie = numeroEtNomDeVoie;
             CodePostal = codePostal;
             Ville = ville;
@@ -31,7 +35,8 @@ namespace ClassesClubTennis {
         /// Méthode permettant de déménager dans la même ville
         /// </summary>
         /// <param name="numeroEtNomDeVoie">Nouvelle voie</param>
-        public void Demenager(string numeroEtNomDeVoie) {
+        public void Demenager(string numeroEtNomDeVoie)
+        {
             NumeroEtNomDeVoie = numeroEtNomDeVoie;
         }
 
@@ -40,11 +45,12 @@ namespace ClassesClubTennis {
         /// </summary>
         /// <param name="adresse">Adresse à comparer à l'instance présente</param>
         /// <returns>Booléen indiquant si l'adresse est dans la même ville</returns>
-        public bool AMemeVille(Adresse adresse) {
+        public bool AMemeVille(Adresse adresse)
+        {
             return Ville.Equals(adresse.Ville);
         }
 
-        public string SaisieEntree(string entree)
+        public static string SaisieEntree(string entree)
         {
             string res;
             do
@@ -55,12 +61,17 @@ namespace ClassesClubTennis {
             return res;
         }
 
-        public Adresse SaisieAdresse()
+        public static Adresse SaisieAdresse()
         {
             string nomRue = SaisieEntree("N° et nom de rue: ");
             int codePostal = Convert.ToInt32(SaisieEntree("Code postal: "));
             string ville = SaisieEntree("Ville: ");
             return new Adresse(nomRue, codePostal, ville);
+        }
+
+        public override string ToString()
+        {
+            return NumeroEtNomDeVoie + " " + CodePostal + " " + Ville;
         }
 
         #endregion
