@@ -32,5 +32,31 @@ namespace ClassesClubTennis
             } while (test == false);
             return res;
         }
+
+        public static int SaisiePositive(string entree)
+        {
+            bool test = true;
+            int x = -1;
+            do
+            {
+                try
+                {
+                    x = Convert.ToInt32(SaisieEntree(entree));
+                }
+                catch (FormatException)
+                {
+                    test = false;
+                }
+                if (x < 0)
+                {
+                    test = false;
+                }
+                else
+                {
+                    test = true;
+                }
+            } while (test == false);
+            return x;
+        }
     }
 }
