@@ -12,29 +12,24 @@ namespace TennisUI
 {
     class Program
     {
+        static Club club = new Club();
+
         static void Main(string[] args)
         {
-            Club club = new Club();
-            //Membre membre = Membre.Creation();
-            //club.AjouterMembre(membre);
-            //Console.WriteLine();
-            //membre.Afficher();
-            club.AfficherPersonnes();
-            Console.ReadKey();
-
-            /*
-            Club club = new Club();
+        
 
             Menu menuMembre = new Menu(
                 new List<IMenuItem>() {
-                    new Fonction(CreationMembre(club), "Créer un membre"),
-                    new Fonction(CreationSalarie(), "Créer un salarié"),
-                    new Fonction(SupprimerMembre(), "Supprimer un membre"),
-                    new Fonction(SupprimerSalarie(), "Supprimer un salarié"),
-                    new Fonction(ModifierAdresse(), "Modifier une adresse"),
-                    new Fonction(ModifierTelephone(), "Modifier un numéro de téléphone"),
-                    new Fonction(VerificationCotisations(), "Vérifier les cotisations"),
-                    new Fonction(AffichageMembre(), "Afficher les membres")
+                    new Fonction(CreationMembre, "Créer un membre"),
+                    new Fonction(CreationIndependant, "Créer un indépendant"),
+                    new Fonction(SupprimerMembre, "Supprimer un membre"),
+                    new Fonction(SupprimerIndependant, "Supprimer un indépendant"),
+                    new Fonction(ModifierAdresse, "Modifier une adresse"),
+                    new Fonction(ModifierTelephone, "Modifier un numéro de téléphone"),
+                    new Fonction(ValidationCotisation, "Valider une cotisation"),
+                    new Fonction(VerificationCotisations, "Vérifier les cotisations"),
+                    new Fonction(AffichagePersonnes, "Afficher les membres et indépendants"),
+                    new Fonction(AffichageInfo, "Afficher les informations d'une personne")
                 }, "Module Membre", true);
 
             Menu menuCompet = new Menu(
@@ -57,53 +52,83 @@ namespace TennisUI
                 }, "Menu général", true);
 
             menuProjet.Run();
-            */
             
         }
-        
+
         #region Méthodes Menu Membre
-        private static FonctionDele AffichageMembre()
+        private static void ValidationCotisation()
         {
-            throw new NotImplementedException();
+            club.ValiderCotisation((Membre)club.SelectionnerMembre());
+            Console.WriteLine("\nEffectué !");
+            Console.ReadKey();
         }
 
-        private static FonctionDele VerificationCotisations()
+        private static void AffichageInfo()
         {
-            throw new NotImplementedException();
+            club.AfficherInfoPersonne();
+            Console.ReadKey();
         }
 
-        private static FonctionDele ModifierTelephone()
+        private static void AffichagePersonnes()
         {
-            throw new NotImplementedException();
+            club.AfficherPersonnes();
+            Console.ReadKey();
         }
 
-        private static FonctionDele ModifierAdresse()
+        private static void VerificationCotisations()
         {
-            throw new NotImplementedException();
+            club.AfficherCotisations();
+            Console.ReadKey();
         }
 
-        private static FonctionDele SupprimerSalarie()
+        private static void ModifierTelephone()
         {
-            throw new NotImplementedException();
+            club.SelectionnerPersonne().ModifierNumeroTelephone(Utility.SaisieEntree("Téléphone: "));
+            Console.WriteLine("\nEffectué !");
+            Console.ReadKey();
         }
 
-        private static FonctionDele SupprimerMembre()
+        private static void ModifierAdresse()
         {
-            throw new NotImplementedException();
+            club.SelectionnerPersonne().Adresse.Demenager(Adresse.SaisieAdresse());
+            Console.WriteLine("\nEffectué !");
+            Console.ReadKey();
         }
 
-        private static FonctionDele CreationSalarie()
+        private static void SupprimerIndependant()
         {
-            throw new NotImplementedException();
+            club.EnleverIndependant((EntraineurIndependant)club.SelectionnerIndependant());
+            Console.WriteLine("\nEffectué !");
+            Console.ReadKey();
         }
 
-        private static FonctionDele CreationMembre(Club club)
+        private static void SupprimerMembre()
         {
-            /*
-            Membre membre = new Membre();
-            club.AjouterMembre(Membre.Creation());
-            */
-            throw new NotImplementedException();
+            club.EnleverMembre((Membre)club.SelectionnerMembre());
+            Console.WriteLine("\nEffectué !");
+            Console.ReadKey();
+        }
+
+        private static void CreationIndependant()
+        {
+            club.AjouterIndependant(EntraineurIndependant.Creation());
+            Console.WriteLine("\nEffectué !");
+            Console.ReadKey();
+        }
+
+        private static void CreationMembre()
+        {
+            TypeMembre typeMembre = Membre.SaisieTypeMembre();
+            if (typeMembre == TypeMembre.Adherent)
+            {
+                club.AjouterMembre(Membre.Creation());
+            }
+            else
+            {
+                club.AjouterMembre(EntraineurSalarie.Creation());
+            }
+            Console.WriteLine("\nEffectué !");
+            Console.ReadKey();
         }
         #endregion
         
