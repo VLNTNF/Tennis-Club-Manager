@@ -104,9 +104,9 @@ namespace ClassesClubTennis
             Membre Leroy = new Membre("Leroy", "Jean", TypeSexe.Masculin, DateTime.Parse("18/04/1978"), "0674851236", new Adresse("2 Rue des Fruitiers", 92000, "Nanterre"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.Quatre_Six));
             Membre Leroy2 = new Membre("Leroy", "Julie", TypeSexe.Feminin, DateTime.Parse("16/08/1980"), "0649614325", new Adresse("2 Rue des Fruitiers", 92000, "Nanterre"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.Quinze_Cinq));
 
-            EntraineurIndependant Lemur = new EntraineurIndependant("Lemur", "Philippe", TypeSexe.Masculin, DateTime.Parse("25/04/1990"), 2);
-            EntraineurIndependant Set = new EntraineurIndependant("Set", "Claudine", TypeSexe.Feminin, DateTime.Parse("12/05/1980"), 2);
-            EntraineurIndependant Service = new EntraineurIndependant("Service", "Marie", TypeSexe.Feminin, DateTime.Parse("17/02/1995"), 2);
+            EntraineurIndependant Lemur = new EntraineurIndependant("Lemur", "Philippe", TypeSexe.Masculin, DateTime.Parse("25/04/1990"), "0788945844", new Adresse("3 Rue du Roi", 92400, "Courbevoie"), 2);
+            EntraineurIndependant Set = new EntraineurIndependant("Set", "Claudine", TypeSexe.Feminin, DateTime.Parse("12/05/1980"), "0644102578", new Adresse("3 Voie des Près", 92000, "Nanterre"), 2);
+            EntraineurIndependant Service = new EntraineurIndependant("Service", "Marie", TypeSexe.Feminin, DateTime.Parse("17/02/1995"), "0600124774", new Adresse("3 Boulevard des Belges", 92000, "Nanterre"), 2);
 
             EntraineurSalarie Ace = new EntraineurSalarie("Ace", "Romain", TypeSexe.Masculin, DateTime.Parse("25/04/1990"), "0782510896", new Adresse("3 Rue de l'Est", 92400, "Courbevoie"), true, 1500, DateTime.Parse("24/07/2019"), new InfoBancaire("FR7630001007941234567890185", "BDFEFRPPCCT"), new Classement(Classement.ValClassement.Un_Six), 10);
             EntraineurSalarie Match = new EntraineurSalarie("Match", "Pierre", TypeSexe.Masculin, DateTime.Parse("15/10/1979"), "0685198348", new Adresse("16 Rue des Gemmes", 92400, "Courbevoie"), true, 1400, DateTime.Parse("10/11/2019"), new InfoBancaire("FR7630004000031234567890143", "BNPAFRPPXXX"), new Classement(Classement.ValClassement.Quatre_Six), 10);
@@ -131,6 +131,49 @@ namespace ClassesClubTennis
         public override string ToString()
         {
             return Nom;
+        }
+
+        public void AfficherInfoPersonne()
+        {
+            Personne personne = SelectionnerPersonne();
+            Type type = personne.GetType();
+
+            if (type == typeof(Membre))
+            {
+                Membre membre = (Membre)personne;
+                if (membre.Type == TypeMembre.Adherent)
+                {
+                    membre.Afficher();
+                }
+                else
+                {
+                    if (type == typeof(Dirigeant))
+                    {
+                        Dirigeant dirigeant = (Dirigeant)membre;
+                        dirigeant.Afficher();
+                    }
+                    else if (type == typeof(EntraineurSalarie))
+                    {
+                        EntraineurSalarie entraineurSalarie = (EntraineurSalarie)membre;
+                        entraineurSalarie.Afficher();
+                    }
+                }
+            }
+            else if (type == typeof(Dirigeant))
+            {
+                Dirigeant dirigeant = (Dirigeant)personne;
+                dirigeant.Afficher();
+            }
+            else if (type == typeof(EntraineurSalarie))
+            {
+                EntraineurSalarie entraineurSalarie = (EntraineurSalarie)personne;
+                entraineurSalarie.Afficher();
+            }
+            else if (type == typeof(EntraineurIndependant))
+            {
+                EntraineurIndependant entraineurIndependant = (EntraineurIndependant)personne;
+                entraineurIndependant.Afficher();
+            }
         }
 
         public void AjouterMembre(Membre membre)
@@ -221,25 +264,145 @@ namespace ClassesClubTennis
             }
         }
 
+        public void AfficherMembres()
+        {
+            int c = 0;
+            Console.WriteLine("Membres:");
+            Console.WriteLine("- adhérents:");
+            List<Personne> list1 = Adherents;
+            foreach (Membre m in list1)
+            {
+                string s = c + " " + m.ToString();
+                if (m.EstCompetiteur)
+                {
+                    s += " : compétiteur";
+                }
+                Console.WriteLine(s);
+                c++;
+            }
+            Console.WriteLine();
+            Console.WriteLine("- personnel:");
+            List<Personne> list2 = Personnel;
+            foreach (Membre m in list2)
+            {
+                string s = c + " " + m.ToString();
+                s += " : ";
+                if (m.GetType() == typeof(Dirigeant))
+                {
+                    Dirigeant d = (Dirigeant)m;
+                    if (d.TypeDirigeant == TypeDirigeant.President)
+                    {
+                        s += "président";
+                    }
+                    else if ((d.TypeDirigeant == TypeDirigeant.Secretaire))
+                    {
+                        s += "secrétaire";
+                    }
+                    else if ((d.TypeDirigeant == TypeDirigeant.Tresorier))
+                    {
+                        s += "trésorier";
+                    }
+                }
+                else
+                {
+                    s += "entraineur salarié";
+                }
+                Console.WriteLine(s);
+                c++;
+            }
+        }
+
+        public void AfficherIndependants()
+        {
+            int c = 0;
+            Console.WriteLine("Indépendants:");
+            foreach (EntraineurIndependant e in Independants)
+            {
+                Console.WriteLine(c + " " + e + " : entraineur indépendant");
+                c++;
+            }
+        }
+
         public Personne SelectionnerPersonne()
         {
             AfficherPersonnes();
             Console.WriteLine();
             int x = SaisiePositive("Numéro: ");
             Personne p = new Personne();
-            if (x <= Adherents.Count)
+            if (x < Adherents.Count)
             {
-                p = Adherents[x - 1];
+                p = Adherents[x];
             }
-            else if (x <= Personnel.Count)
+            else if (x < Adherents.Count + Personnel.Count)
             {
-                p = Personnel[x - Adherents.Count - 1];
+                p = Personnel[x - Adherents.Count];
+            }
+            else if (x < Adherents.Count + Personnel.Count + Independants.Count)
+            {
+                p = Independants[x - Adherents.Count - Personnel.Count];
             }
             else
             {
-                p = Independants[x - Adherents.Count - Personnel.Count - 1];
+                p = Independants.Last();
             }
             return p;
+        }
+
+        public Personne SelectionnerMembre()
+        {
+            AfficherMembres();
+            Console.WriteLine();
+            int x = SaisiePositive("Numéro: ");
+            Personne p = new Personne();
+            if (x < Adherents.Count)
+            {
+                p = Adherents[x];
+            }
+            else if (x < Adherents.Count + Personnel.Count)
+            {
+                p = Personnel[x - Adherents.Count];
+            }
+            else
+            {
+                p = Personnel.Last();
+            }
+            return p;
+        }
+
+        public Personne SelectionnerIndependant()
+        {
+            AfficherIndependants();
+            Console.WriteLine();
+            int x = SaisiePositive("Numéro: ");
+            Personne p = new Personne();
+            if (x < Independants.Count)
+            {
+                p = Independants[x];
+            }
+            else
+            {
+                p = Independants.Last();
+            }
+            return p;
+        }
+
+        public void AfficherCotisations()
+        {
+            List<Personne> list = Adherents;
+            foreach (Membre m in list)
+            {
+                string s = m.ToString() + " : " + m.Cotisation;
+                if (!m.ARegleCotisation)
+                {
+                    s += " / non payée";
+                }
+                Console.WriteLine(s);
+            }
+        }
+
+        public void ValiderCotisation(Membre membre)
+        {
+            membre.ARegleCotisation = true;
         }
     }
 }
