@@ -16,7 +16,15 @@ namespace TennisUI
 
         static void Main(string[] args)
         {
-        
+            Menu menuAffichage = new Menu(
+                new List<IMenuItem>() {
+                    new Fonction(AffichagePersonnes, "Tous les membres avec les indépendants"),
+                    new Fonction(AffichageLoisirComp, "Loisir / compétition"),
+                    new Fonction(SupprimerMembre, "Par ordre alphabétique"),
+                    new Fonction(SupprimerIndependant, "Par classement"),
+                    new Fonction(ModifierAdresse, "Par sexe"),
+                    new Fonction(ModifierTelephone, "Par cotisation")
+                }, "Affichage des membres", true);
 
             Menu menuMembre = new Menu(
                 new List<IMenuItem>() {
@@ -28,7 +36,7 @@ namespace TennisUI
                     new Fonction(ModifierTelephone, "Modifier un numéro de téléphone"),
                     new Fonction(ValidationCotisation, "Valider une cotisation"),
                     new Fonction(VerificationCotisations, "Vérifier les cotisations"),
-                    new Fonction(AffichagePersonnes, "Afficher les membres et indépendants"),
+                    menuAffichage,
                     new Fonction(AffichageInfo, "Afficher les informations d'une personne")
                 }, "Module Membre", true);
 
@@ -56,6 +64,11 @@ namespace TennisUI
         }
 
         #region Méthodes Menu Membre
+        private static void AffichageLoisirComp()
+        {
+            club.AffichageLoisirComp();
+            Console.ReadKey();
+        }
         private static void ValidationCotisation()
         {
             club.ValiderCotisation((Membre)club.SelectionnerMembre());

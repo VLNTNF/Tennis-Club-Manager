@@ -94,12 +94,12 @@ namespace ClassesClubTennis
             Membre Dupond = new Membre("Dupond", "Romain", TypeSexe.Masculin, DateTime.Parse("12/03/2000"), "0725745896", new Adresse("26 Chemin de Noisetier", 78000, "Versailles"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.Trente_Deux));
             Membre Laforge = new Membre("Laforge", "Claudine", TypeSexe.Feminin, DateTime.Parse("12/05/1980"), "0641101025", new Adresse("12 Chemin de Tonnerre", 92400, "Courbevoie"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.Quinze_Cinq));
             Membre Laforge2 = new Membre("Laforge", "Pierre", TypeSexe.Masculin, DateTime.Parse("15/10/1979"), "0625267889", new Adresse("12 Chemin de Tonnerre", 92400, "Courbevoie"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.Quinze));
-            Membre Laforge3 = new Membre("Laforge", "Marie", TypeSexe.Feminin, DateTime.Parse("17/02/2007"), "0745966352", new Adresse("12 Chemin de Tonnerre", 92400, "Courbevoie"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.Trente_Cinq));
-            Membre Laforge4 = new Membre("Laforge", "Paul", TypeSexe.Masculin, DateTime.Parse("20/03/2009"), "0721450014", new Adresse("12 Chemin de Tonnerre", 92400, "Courbevoie"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.Trente_Cinq));
+            Membre Laforge3 = new Membre("Laforge", "Marie", TypeSexe.Feminin, DateTime.Parse("17/02/2007"), "0745966352", new Adresse("12 Chemin de Tonnerre", 92400, "Courbevoie"), TypeMembre.Adherent, false, new Classement(Classement.ValClassement.Trente_Cinq));
+            Membre Laforge4 = new Membre("Laforge", "Paul", TypeSexe.Masculin, DateTime.Parse("20/03/2009"), "0721450014", new Adresse("12 Chemin de Tonnerre", 92400, "Courbevoie"), TypeMembre.Adherent, false, new Classement(Classement.ValClassement.Trente_Cinq));
             Membre Fournier = new Membre("Fournier", "Sylvie", TypeSexe.Feminin, DateTime.Parse("17/02/1980"), "0725267889", new Adresse("1 Rue de Vermillon", 95100, "Argenteuil"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.Quinze_Quatre));
             Membre Fournier2 = new Membre("Fournier", "Luc", TypeSexe.Masculin, DateTime.Parse("10/10/1978"), "0645751025", new Adresse("1 Rue de Vermillon", 95100, "Argenteuil"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.Quinze));
             Membre Garcia = new Membre("Garcia", "Sophie", TypeSexe.Feminin, DateTime.Parse("18/06/1980"), "0645751025", new Adresse("49 Voie du Cyprès", 92400, "Courbevoie"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.Trente_Deux));
-            Membre Garcia2 = new Membre("Garcia", "Dominique", TypeSexe.Masculin, DateTime.Parse("11/11/1979"), "0628758452", new Adresse("49 Voie du Cyprès", 92400, "Courbevoie"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.Quatre_Six));
+            Membre Garcia2 = new Membre("Garcia", "Dominique", TypeSexe.Masculin, DateTime.Parse("11/11/1979"), "0628758452", new Adresse("49 Voie du Cyprès", 92400, "Courbevoie"), TypeMembre.Adherent, false, new Classement(Classement.ValClassement.Quatre_Six));
             Membre Garcia3 = new Membre("Garcia", "Marie", TypeSexe.Feminin, DateTime.Parse("17/03/2008"), "0782641245", new Adresse("49 Voie du Cyprès", 92400, "Courbevoie"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.NC));
             Membre Leroy = new Membre("Leroy", "Jean", TypeSexe.Masculin, DateTime.Parse("18/04/1978"), "0674851236", new Adresse("2 Rue des Fruitiers", 92000, "Nanterre"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.Quatre_Six));
             Membre Leroy2 = new Membre("Leroy", "Julie", TypeSexe.Feminin, DateTime.Parse("16/08/1980"), "0649614325", new Adresse("2 Rue des Fruitiers", 92000, "Nanterre"), TypeMembre.Adherent, true, new Classement(Classement.ValClassement.Quinze_Cinq));
@@ -403,6 +403,67 @@ namespace ClassesClubTennis
         public void ValiderCotisation(Membre membre)
         {
             membre.ARegleCotisation = true;
+        }
+
+        public void AffichageLoisirComp()
+        {
+            List<Personne> comp = new List<Personne>();
+            List<Personne> loisir = new List<Personne>();
+            foreach (Membre m in adherents)
+            {
+                if (m.EstCompetiteur)
+                {
+                    comp.Add(m);
+                }
+                else
+                {
+                    loisir.Add(m);
+                }
+            }
+            foreach (Membre m in personnel)
+            {
+                if (m.EstCompetiteur)
+                {
+                    comp.Add(m);
+                }
+                else
+                {
+                    loisir.Add(m);
+                }
+            }
+            Console.WriteLine("Compétiteurs:");
+            foreach(Membre p in comp)
+            {
+                Console.WriteLine(p);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Loisirs:");
+            foreach (Membre p in loisir)
+            {
+                if (p.Type == TypeMembre.Adherent)
+                {
+                    Console.WriteLine(p);
+                }
+            }
+        }
+
+        public List<Membre> TrierPar(string s)
+        {
+            List<Personne> membres = adherents.Concat(personnel).ToList();
+            List<Membre> membresM = new List<Membre>();
+            foreach(Personne p in membres) { membresM.Add((Membre)p); }
+            switch (s)
+            {
+                case "nom":
+                    membresM.Sort((x, y) => x.Nom.CompareTo(y.Nom));
+                    break;
+                case "classement":
+                    membresM.Sort((x, y) => x.Classement.CompareTo(y.Classement));
+                    break;
+                default:
+                    break;
+            }
+            return membresM;
         }
     }
 }
