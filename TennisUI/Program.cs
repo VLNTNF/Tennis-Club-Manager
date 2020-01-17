@@ -20,10 +20,10 @@ namespace TennisUI
                 new List<IMenuItem>() {
                     new Fonction(AffichagePersonnes, "Tous les membres avec les indépendants"),
                     new Fonction(AffichageLoisirComp, "Loisir / compétition"),
-                    new Fonction(SupprimerMembre, "Par ordre alphabétique"),
-                    new Fonction(SupprimerIndependant, "Par classement"),
-                    new Fonction(ModifierAdresse, "Par sexe"),
-                    new Fonction(ModifierTelephone, "Par cotisation")
+                    new Fonction(AffichageAlphabetique, "Par ordre alphabétique"),
+                    new Fonction(AffichageClassement, "Par classement"),
+                    new Fonction(AffichageParSexe, "Par sexe"),
+                    new Fonction(AffichageParCotisation, "Par cotisation")
                 }, "Affichage des membres", true);
 
             Menu menuMembre = new Menu(
@@ -63,7 +63,32 @@ namespace TennisUI
             
         }
 
-        #region Méthodes Menu Membre
+        #region Méthodes Menu Membreri
+
+        private static void AffichageParCotisation()
+        {
+            club.AffichageCotisations();
+            Console.ReadKey();
+        }
+
+        private static void AffichageParSexe()
+        {
+            club.AffichageSexe();
+            Console.ReadKey();
+        }
+
+        private static void AffichageClassement()
+        {
+            club.AfficherMembres(club.TrierPar("classement"));
+            Console.ReadKey();
+        }
+
+        private static void AffichageAlphabetique()
+        {
+            club.AfficherMembres(club.TrierPar("nom"));
+            Console.ReadKey();
+        }
+
         private static void AffichageLoisirComp()
         {
             club.AffichageLoisirComp();
@@ -96,14 +121,14 @@ namespace TennisUI
 
         private static void ModifierTelephone()
         {
-            club.SelectionnerPersonne().ModifierNumeroTelephone(Utility.SaisieEntree("Téléphone: "));
+            club.SelectionnerPersonne().ModifierNumeroTelephone();
             Console.WriteLine("\nEffectué !");
             Console.ReadKey();
         }
 
         private static void ModifierAdresse()
         {
-            club.SelectionnerPersonne().Adresse.Demenager(Adresse.SaisieAdresse());
+            club.SelectionnerPersonne().Demenager(Adresse.SaisieAdresse());
             Console.WriteLine("\nEffectué !");
             Console.ReadKey();
         }

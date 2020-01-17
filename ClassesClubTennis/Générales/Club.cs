@@ -312,6 +312,14 @@ namespace ClassesClubTennis
             }
         }
 
+        public void AfficherMembres(List<Membre> membres)
+        {
+            foreach(Membre m in membres)
+            {
+                Console.WriteLine(m);
+            }
+        }
+
         public void AfficherIndependants()
         {
             int c = 0;
@@ -447,6 +455,73 @@ namespace ClassesClubTennis
             }
         }
 
+        public void AffichageSexe()
+        {
+            List<Personne> hommes = new List<Personne>();
+            List<Personne> femmes = new List<Personne>();
+            foreach (Membre m in adherents)
+            {
+                if (m.Sexe==TypeSexe.Masculin)
+                {
+                    hommes.Add(m);
+                }
+                else
+                {
+                    femmes.Add(m);
+                }
+            }
+            foreach (Membre m in personnel)
+            {
+                if (m.Sexe == TypeSexe.Masculin)
+                {
+                    hommes.Add(m);
+                }
+                else
+                {
+                    femmes.Add(m);
+                }
+            }
+            Console.WriteLine("Hommes:");
+            foreach (Membre p in hommes)
+            {
+                Console.WriteLine(p);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Femmes:");
+            foreach (Membre p in femmes)
+            {
+                Console.WriteLine(p);
+            }
+        }
+
+        public void AffichageCotisations()
+        {
+            List<Personne> payee = new List<Personne>();
+            List<Personne> nonpayee = new List<Personne>();
+            foreach (Membre m in adherents)
+            {
+                if (m.ARegleCotisation)
+                {
+                    payee.Add(m);
+                }
+                else
+                {
+                    nonpayee.Add(m);
+                }
+            }
+            Console.WriteLine("Payée:");
+            foreach (Membre p in payee)
+            {
+                Console.WriteLine(p);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Non payée:");
+            foreach (Membre p in nonpayee)
+            {
+                Console.WriteLine(p);
+            }
+        }
+
         public List<Membre> TrierPar(string s)
         {
             List<Personne> membres = adherents.Concat(personnel).ToList();
@@ -458,7 +533,7 @@ namespace ClassesClubTennis
                     membresM.Sort((x, y) => x.Nom.CompareTo(y.Nom));
                     break;
                 case "classement":
-                    membresM.Sort((x, y) => x.Classement.CompareTo(y.Classement));
+                    membresM.Sort((Membre x, Membre y) => x.Classement.CompareTo(y.Classement));
                     break;
                 default:
                     break;
