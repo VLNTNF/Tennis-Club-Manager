@@ -39,9 +39,16 @@ namespace ClassesClubTennis.Acteurs
 
         public string NumeroTelephone { get; set; }
 
-        public void ModifierNumeroTelephone(string nouveauNumero)
+        public void ModifierNumeroTelephone()
         {
             NumeroTelephone = SaisieEntree("Téléphone: ");
+        }
+
+        public void Demenager(Adresse adresse)
+        {
+            this.Adresse.NumeroEtNomDeVoie = adresse.NumeroEtNomDeVoie;
+            this.Adresse.CodePostal = adresse.CodePostal;
+            this.Adresse.Ville = adresse.Ville;
         }
 
         public Personne() { }

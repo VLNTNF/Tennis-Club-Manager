@@ -4,11 +4,11 @@ using System.Text;
 
 namespace ClassesClubTennis
 {
-    public struct Adresse
+    public class Adresse
     {
-        public string NumeroEtNomDeVoie { get; private set; }
-        public int CodePostal { get; private set; }
-        public string Ville { get; private set; }
+        public string NumeroEtNomDeVoie { get; set; }
+        public int CodePostal { get; set; }
+        public string Ville { get; set; }
 
         public Adresse(string numeroEtNomDeVoie, int codePostal, string ville)
         {
@@ -29,15 +29,6 @@ namespace ClassesClubTennis
             NumeroEtNomDeVoie = adresse.NumeroEtNomDeVoie;
             CodePostal = adresse.CodePostal;
             Ville = adresse.Ville;
-        }
-
-        /// <summary>
-        /// Méthode permettant de déménager dans la même ville
-        /// </summary>
-        /// <param name="numeroEtNomDeVoie">Nouvelle voie</param>
-        public void Demenager(string numeroEtNomDeVoie)
-        {
-            NumeroEtNomDeVoie = numeroEtNomDeVoie;
         }
 
         /// <summary>
