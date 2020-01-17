@@ -15,6 +15,10 @@ namespace ClassesClubTennis.Acteurs
         public Dirigeant(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse, TypeDirigeant typeDirigeant, TypeMembre typeMembre, double salaire, DateTime dateEntreeClub, InfoBancaire informationsBancaires, bool estCompetiteur = false, Classement classement = null)
             : base(nom, prenom, sexe, dateNaissance, numeroTelephone, adresse, typeMembre, estCompetiteur, classement)
         {
+            if(classement == null)
+            {
+                this.Classement = new Classement();
+            }
             this.TypeDirigeant = typeDirigeant;
             this.Salaire = salaire;
             this.DateEntreeClub = dateEntreeClub;

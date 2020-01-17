@@ -45,7 +45,7 @@ namespace ClassesClubTennis.Acteurs
             return res;
         }
 
-        public Membre(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse, TypeMembre type, bool estCompetiteur, Classement classement) : base(nom, prenom, sexe, dateNaissance, numeroTelephone, adresse)
+        public Membre(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse, TypeMembre type, bool estCompetiteur, Classement classement = default) : base(nom, prenom, sexe, dateNaissance, numeroTelephone, adresse)
         {
             EstCompetiteur = estCompetiteur;
             ARegleCotisation = false;

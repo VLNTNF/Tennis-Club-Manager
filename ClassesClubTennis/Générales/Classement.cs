@@ -86,15 +86,10 @@ namespace ClassesClubTennis
 
         #region Constructeurs
         /// <summary>
-        /// Constructeur vide (Classement par défaut est "non classé")
-        /// </summary>
-        public Classement() { }
-
-        /// <summary>
         /// Constructeur dans le cas où le compétiteur a déjà un classement
         /// </summary>
         /// <param name="classementInitial">Classement du compétiteur au moment de sa création</param>
-        public Classement(ValClassement classementInitial)
+        public Classement(ValClassement classementInitial = ValClassement.NC)
         {
             ValeurClassement = classementInitial;
         }
