@@ -24,11 +24,11 @@ namespace ClassesClubTennis
         /// <param name="numeroEtNomDeVoie">Nouvelle voie</param>
         /// <param name="codePostal">Nouveau code postal</param>
         /// <param name="ville">Nouvelle ville</param>
-        public void Demenager(string numeroEtNomDeVoie, int codePostal, string ville)
+        public void Demenager(Adresse adresse)
         {
-            NumeroEtNomDeVoie = numeroEtNomDeVoie;
-            CodePostal = codePostal;
-            Ville = ville;
+            NumeroEtNomDeVoie = adresse.NumeroEtNomDeVoie;
+            CodePostal = adresse.CodePostal;
+            Ville = adresse.Ville;
         }
 
         /// <summary>
