@@ -35,14 +35,25 @@ namespace ClassesClubTennis.Acteurs
             return age < 18;
         }
 
+        public Adresse Adresse { get; set; }
+
+        public string NumeroTelephone { get; set; }
+
+        public void ModifierNumeroTelephone(string nouveauNumero)
+        {
+            NumeroTelephone = SaisieEntree("Téléphone: ");
+        }
+
         public Personne() { }
 
-        public Personne(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance)
+        public Personne(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse)
         {
             this.Nom = nom;
             this.Prenom = prenom;
             this.Sexe = sexe;
             this.DateNaissance = dateNaissance;
+            this.NumeroTelephone = numeroTelephone;
+            this.Adresse = adresse;
         }
 
         public override string ToString()

@@ -25,15 +25,6 @@ namespace ClassesClubTennis.Acteurs
 
         public Classement Classement { get; set; }
 
-        public Adresse Adresse { get; set; }
-
-        public string NumeroTelephone { get; set; }
-
-        public void ModifierNumeroTelephone(string nouveauNumero)
-        {
-            NumeroTelephone = SaisieEntree("Téléphone: ");
-        }
-
         public int MontantCotisation()
         {
             int res = 0;
@@ -54,9 +45,7 @@ namespace ClassesClubTennis.Acteurs
             return res;
         }
 
-        public Membre(string nom=null, string prenom = null, TypeSexe sexe = default(TypeSexe), DateTime dateNaissance = default(DateTime)) : base(nom,prenom, sexe, dateNaissance) { }
-
-        public Membre(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse, TypeMembre type, bool estCompetiteur, Classement classement) : base(nom, prenom, sexe, dateNaissance)
+        public Membre(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse, TypeMembre type, bool estCompetiteur, Classement classement) : base(nom, prenom, sexe, dateNaissance, numeroTelephone, adresse)
         {
             EstCompetiteur = estCompetiteur;
             ARegleCotisation = false;
@@ -100,13 +89,13 @@ namespace ClassesClubTennis.Acteurs
             return new Membre(nom, prenom, sexe, dateNaissance, numeroTelephone, adresse, type, estCompetiteur, classement);
         }
 
-        public static TypeMembre SaisieTypeMembre(string entree)
+        public static TypeMembre SaisieTypeMembre()
         {
             string typeMembre;
             do
             {
-                typeMembre = SaisieEntree(entree);
-            } while ((typeMembre != "1") && (typeMembre != "2") && (typeMembre != "Adherent") && (typeMembre != "Personnel"));
+                typeMembre = SaisieEntree("Type (1: Adherent, 2: Entraineur): ");
+            } while ((typeMembre != "1") && (typeMembre != "2") && (typeMembre != "Adherent") && (typeMembre != "Entraineur"));
             if ((typeMembre == "1") || (typeMembre == "Adherent"))
             {
                 return TypeMembre.Adherent;

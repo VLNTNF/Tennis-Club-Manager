@@ -8,7 +8,7 @@ namespace ClassesClubTennis.Acteurs
     {
         public int NombreDeCoursAEffectuer { get; set; }
 
-        public EntraineurIndependant(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, int nombreDeCoursAEffectuer = 0) : base(nom, prenom, sexe, dateNaissance)
+        public EntraineurIndependant(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse, int nombreDeCoursAEffectuer = 0) : base(nom, prenom, sexe, dateNaissance, numeroTelephone, adresse)
         {
             NombreDeCoursAEffectuer = nombreDeCoursAEffectuer;
         }
@@ -20,6 +20,8 @@ namespace ClassesClubTennis.Acteurs
             Console.WriteLine("Prénom: " + Prenom);
             Console.WriteLine("Sexe: " + Sexe);
             Console.WriteLine("Naissance: " + DateNaissance);
+            Console.WriteLine("Téléphone: " + NumeroTelephone);
+            Console.WriteLine("Adresse: " + Adresse);
             Console.WriteLine("Nombre de cours: " + NombreDeCoursAEffectuer);
         }
 
@@ -29,8 +31,10 @@ namespace ClassesClubTennis.Acteurs
             string prenom = SaisieEntree("Prénom: ");
             TypeSexe sexe = SaisieSexe("Sexe (H/M): ");
             DateTime dateNaissance = SaisieDate("Naissance JJ/MM/AAAA: ");
+            string numeroTelephone = SaisieEntree("Téléphone: ");
+            Adresse adresse = Adresse.SaisieAdresse();
             int nbCours = SaisiePositive("Nombre de cours: ");
-            return new EntraineurIndependant(nom, prenom, sexe, dateNaissance, nbCours);
+            return new EntraineurIndependant(nom, prenom, sexe, dateNaissance, numeroTelephone, adresse, nbCours);
         }
     }
 }

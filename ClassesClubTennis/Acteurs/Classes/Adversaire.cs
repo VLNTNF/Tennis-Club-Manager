@@ -9,7 +9,7 @@ namespace ClassesClubTennis.Acteurs {
 
         public Club Club { get; set; }
 
-        public Adversaire(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, Club club) : base(nom, prenom, sexe, dateNaissance) 
+        public Adversaire(string nom, string prenom, TypeSexe sexe, DateTime dateNaissance, string numeroTelephone, Adresse adresse, Club club) : base(nom, prenom, sexe, dateNaissance, numeroTelephone, adresse) 
         {
             Club = club;
         }
@@ -26,6 +26,8 @@ namespace ClassesClubTennis.Acteurs {
             Console.WriteLine("Prénom: " + Prenom);
             Console.WriteLine("Sexe: " + Sexe);
             Console.WriteLine("Naissance: " + DateNaissance);
+            Console.WriteLine("Téléphone: " + NumeroTelephone);
+            Console.WriteLine("Adresse: " + Adresse);
             Console.WriteLine("Club: " + Club);
         }
     }
