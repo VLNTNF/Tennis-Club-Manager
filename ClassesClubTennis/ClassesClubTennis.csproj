@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Acteurs\DiagActeurs.cd" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Evenements\DiagEvenements.cd" />
   </ItemGroup>
   <ItemGroup />
